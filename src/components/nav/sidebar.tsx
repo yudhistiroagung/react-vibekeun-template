@@ -3,10 +3,7 @@ import { Home, Settings, User } from 'lucide-react'
 
 export function Sidebar() {
   return (
-    <div className="w-64 border-r bg-white h-screen fixed left-0 top-0 flex flex-col z-40">
-      <div className="h-16 flex items-center px-6 border-b text-xl font-bold tracking-tight">
-        Vibekeun
-      </div>
+    <div className="w-[220px] border-r bg-white flex flex-col z-40 flex-shrink-0">
       <nav className="flex-1 px-4 py-6 flex flex-col gap-2 overflow-y-auto">
         <Link
           to="/"
