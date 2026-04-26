@@ -21,6 +21,6 @@ export default defineConfig({
   test: {
     globals: true, // Agar tidak perlu import 'describe', 'it', dll
     environment: 'jsdom',
-    setupFiles: './test/setup.ts', // File setup (lihat langkah B)
+    setupFiles: './__test__/setup.ts', // File setup (lihat langkah B)
   },
 });
