@@ -12,14 +12,14 @@ export function BottomTab() {
         <span className="text-xs mt-1">Home</span>
       </Link>
       <Link
-        to="/"
+        to="/profile"
         className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
       >
         <User size={20} />
         <span className="text-xs mt-1">Profile</span>
       </Link>
       <Link
-        to="/"
+        to="/settings"
         className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
       >
         <Settings size={20} />
