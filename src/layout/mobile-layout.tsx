@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { BottomTab } from '@/layout/nav/bottom-tab'
+import type * as React from 'react';
+import { BottomTab } from '@/layout/nav/bottom-tab';
 
 export function MobileLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,5 +9,5 @@ export function MobileLayout({ children }: { children: React.ReactNode }) {
       </main>
       <BottomTab />
     </div>
-  )
+  );
 }

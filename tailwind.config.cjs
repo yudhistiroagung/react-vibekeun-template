@@ -42,9 +42,11 @@ module.exports = {
           DEFAULT: 'oklch(var(--sidebar) / <alpha-value>)',
           foreground: 'oklch(var(--sidebar-foreground) / <alpha-value>)',
           primary: 'oklch(var(--sidebar-primary) / <alpha-value>)',
-          'primary-foreground': 'oklch(var(--sidebar-primary-foreground) / <alpha-value>)',
+          'primary-foreground':
+            'oklch(var(--sidebar-primary-foreground) / <alpha-value>)',
           accent: 'oklch(var(--sidebar-accent) / <alpha-value>)',
-          'accent-foreground': 'oklch(var(--sidebar-accent-foreground) / <alpha-value>)',
+          'accent-foreground':
+            'oklch(var(--sidebar-accent-foreground) / <alpha-value>)',
           border: 'oklch(var(--sidebar-border) / <alpha-value>)',
           ring: 'oklch(var(--sidebar-ring) / <alpha-value>)',
         },
@@ -56,5 +58,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [require('tailwindcss-animate')],
+};

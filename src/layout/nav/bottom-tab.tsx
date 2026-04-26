@@ -1,5 +1,5 @@
-import { Link } from '@tanstack/react-router'
-import { Home, Settings, User } from 'lucide-react'
+import { Link } from '@tanstack/react-router';
+import { Home, Settings, User } from 'lucide-react';
 
 export function BottomTab() {
   return (
@@ -26,5 +26,5 @@ export function BottomTab() {
         <span className="text-xs mt-1">Settings</span>
       </Link>
     </div>
-  )
+  );
 }

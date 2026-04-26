@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { Sidebar } from '@/layout/nav/sidebar'
-import { Header } from '@/layout/nav/header'
+import type * as React from 'react';
+import { Header } from '@/layout/nav/header';
+import { Sidebar } from '@/layout/nav/sidebar';
 
 export function DesktopLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +10,9 @@ export function DesktopLayout({ children }: { children: React.ReactNode }) {
         <Sidebar />
         <main className="flex-1 overflow-y-auto p-6 min-w-[1060px]">
           <div className="flex items-center justify-end mb-6">
-            <span className="text-sm text-muted-foreground border rounded-md px-3 py-1.5 bg-white shadow-sm">[Filter Periode]</span>
+            <span className="text-sm text-muted-foreground border rounded-md px-3 py-1.5 bg-white shadow-sm">
+              [Filter Periode]
+            </span>
           </div>
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 min-h-[calc(100vh-10rem)] p-6">
             {children}
@@ -18,5 +20,5 @@ export function DesktopLayout({ children }: { children: React.ReactNode }) {
         </main>
       </div>
     </div>
-  )
+  );
 }
