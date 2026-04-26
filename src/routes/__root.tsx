@@ -1,8 +1,8 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
-import { useIsMobile } from '../hooks/use-mobile';
-import { DesktopLayout } from '../layout/desktop-layout';
-import { MobileLayout } from '../layout/mobile-layout';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { DesktopLayout } from '@/layouts/desktop-layout';
+import { MobileLayout } from '@/layouts/mobile-layout';
 
 export const Route = createRootRoute({
   component: RootComponent,
