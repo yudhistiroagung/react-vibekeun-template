@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Sidebar } from '../nav/sidebar'
-import { Header } from '../nav/header'
+import { Sidebar } from '@/layout/nav/sidebar'
+import { Header } from '@/layout/nav/header'
 
 export function DesktopLayout({ children }: { children: React.ReactNode }) {
   return (
