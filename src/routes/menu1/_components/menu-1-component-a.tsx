@@ -5,4 +5,5 @@ function Menu1ComponentA() {
     </div>
   );
 }
+
 export { Menu1ComponentA };
