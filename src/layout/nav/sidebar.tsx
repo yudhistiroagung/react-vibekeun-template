@@ -13,18 +13,18 @@ export function Sidebar() {
           Home
         </Link>
         <Link
-          to="/profile"
+          to="/menu1"
           className="flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors [&.active]:bg-blue-50 [&.active]:text-blue-600 [&.active]:font-medium"
         >
           <User size={20} />
-          Profile
+          Menu 1
         </Link>
         <Link
-          to="/settings"
+          to="/menu2"
           className="flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors [&.active]:bg-blue-50 [&.active]:text-blue-600 [&.active]:font-medium"
         >
           <Settings size={20} />
-          Settings
+          Menu 2
         </Link>
       </nav>
     </div>
