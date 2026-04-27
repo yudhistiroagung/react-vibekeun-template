@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import { BottomTab } from '@/layouts/nav/bottom-tab';
+import { BottomTab } from '@/presentations/layouts/nav/bottom-tab';
 
 export function MobileLayout({ children }: { children: React.ReactNode }) {
   return (

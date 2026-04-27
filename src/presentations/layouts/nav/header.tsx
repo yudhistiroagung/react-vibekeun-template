@@ -1,5 +1,6 @@
 import { LogOut } from 'lucide-react';
-import { Button } from '@/components/button';
+
+import { Button } from '@/presentations/components/button';
 
 export function Header() {
   return (

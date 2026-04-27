@@ -13,11 +13,9 @@
   "iconLibrary": "lucide",
   "rtl": false,
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "components": "@/presentations/components",
+    "utils": "@/presentations/utils/utils",
+    "hooks": "@/presentations/hooks"
   },
   "menuColor": "default",
   "menuAccent": "subtle",

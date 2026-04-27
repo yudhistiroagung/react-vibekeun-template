@@ -15,7 +15,7 @@ describe('Button Component', () => {
   // 2. Snapshot Test (UI Structure)
   it('harus cocok dengan snapshot sebelumnya', () => {
     const { asFragment } = render(<Button aria-label="LOGIN" />);
-    
+
     // Ini akan membuat file .snap di folder __snapshots__
     expect(asFragment()).toMatchSnapshot();
   });
