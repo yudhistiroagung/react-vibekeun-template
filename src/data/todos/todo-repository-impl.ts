@@ -1,11 +1,16 @@
+import { inject, injectable } from 'tsyringe';
+
 import { type TodoRepository } from '@/domain/todos/todo-repository';
 
 import type { TodoDataSource } from './datasources/todo-datasource';
+import { TodoLocalDatasource } from './datasources/local/todo-local-datasource';
+import { TodoRemoteDatasource } from './datasources/remote/todo-remote-datasource';
 
+@injectable()
 export class TodoRepositoryImpl implements TodoRepository {
   constructor(
-    private readonly local: TodoDataSource,
-    private readonly remote: TodoDataSource,
+    @inject(TodoLocalDatasource.TOKEN) private local: TodoDataSource,
+    @inject(TodoRemoteDatasource.TOKEN) private remote: TodoDataSource,
   ) {}
 
   async getTodos() {

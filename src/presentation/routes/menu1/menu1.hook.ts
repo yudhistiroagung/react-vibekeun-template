@@ -1,6 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { useGetTodos } from '@/presentation/hooks/use-get-todos';
+
 export const useMenu1 = () => {
+  /**
+   * custom hook usage
+   */
+  const { todos, getTodos } = useGetTodos();
+
   /**
    * State Declarations
    */
@@ -22,8 +29,12 @@ export const useMenu1 = () => {
    * Effect declarations
    */
   useEffect(() => {
-    console.log('CHANGE', mappedCount);
+    getTodos();
   }, [mappedCount]);
+
+  useEffect(() => {
+    console.log('TODOS', todos);
+  }, [todos]);
 
   return {
     count,

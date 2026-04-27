@@ -6,6 +6,10 @@
   ],
   "compilerOptions": {
     "erasableSyntaxOnly": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false,
+    "target": "esnext",
     "paths": {
       "@/*": ["./src/*"]
     }

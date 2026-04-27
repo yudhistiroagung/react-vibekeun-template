@@ -1,7 +1,8 @@
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { defineConfig } from 'vitest/config';
+import typescript from '@rollup/plugin-typescript';
 
 export default defineConfig({
   plugins: [
@@ -13,7 +14,16 @@ export default defineConfig({
       routeFileIgnorePattern:
         '(./-components/.*|.*\\.test\\.tsx|.*\\.hook\\.ts)',
     }),
-    react(),
+    react({
+      tsDecorators: true,
+    }),
+    typescript({
+      tsconfig: './tsconfig.json',
+      declaration: false,
+      declarationMap: false,
+      emitDecoratorMetadata: true,
+      experimentalDecorators: true,
+    }),
   ],
   resolve: {
     alias: {
