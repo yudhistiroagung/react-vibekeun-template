@@ -8,7 +8,7 @@ export default defineConfig({
     tanstackRouter({
       target: 'react',
       autoCodeSplitting: true,
-      routesDirectory: './src/presentations/routes',
+      routesDirectory: './src/presentation/routes',
       routeFileIgnorePrefix: '-',
       routeFileIgnorePattern:
         '(./-components/.*|.*\\.test\\.tsx|.*\\.hook\\.ts)',

@@ -1,6 +1,6 @@
 import type * as React from 'react';
-import { Header } from '@/presentations/layouts/nav/header';
-import { Sidebar } from '@/presentations/layouts/nav/sidebar';
+import { Header } from '@/presentation/layouts/nav/header';
+import { Sidebar } from '@/presentation/layouts/nav/sidebar';
 
 export function DesktopLayout({ children }: { children: React.ReactNode }) {
   return (
