@@ -1,14 +1,14 @@
-import { injectable } from 'tsyringe';
+import { singleton } from 'tsyringe';
 
 import type { TodoDataSource } from '../todo-datasource';
 import type { Todo } from '@/domain/todos/models';
 
-@injectable()
+@singleton()
 export class TodoRemoteDatasource implements TodoDataSource {
   static readonly TOKEN = 'TodoRemoteDatasource';
 
   async setTodos(_todos: Todo[]): Promise<void> {
-    throw new Error('Method not implemented.');
+    // do nothing
   }
 
   async getTodos() {
