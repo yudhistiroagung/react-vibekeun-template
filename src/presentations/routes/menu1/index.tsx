@@ -8,7 +8,7 @@ export const Route = createFileRoute('/menu1/')({
 });
 
 function Menu1() {
-  const {mappedCount} = useMenu1();
+  const { mappedCount } = useMenu1();
   return (
     <div className="flex flex-col gap-6">
       <div className="border-b pb-4">

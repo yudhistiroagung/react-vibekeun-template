@@ -10,7 +10,8 @@ export default defineConfig({
       autoCodeSplitting: true,
       routesDirectory: './src/presentations/routes',
       routeFileIgnorePrefix: '-',
-      routeFileIgnorePattern: '(./-components/.*|.*\\.test\\.tsx|.*\\.hook\\.ts)',
+      routeFileIgnorePattern:
+        '(./-components/.*|.*\\.test\\.tsx|.*\\.hook\\.ts)',
     }),
     react(),
   ],
