@@ -15,5 +15,5 @@ export class AppDatabase extends Dexie {
     this.version(1).stores({
       todos: '++id, name, status',
     });
-  };
+  }
 }
