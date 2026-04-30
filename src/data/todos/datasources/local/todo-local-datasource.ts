@@ -1,15 +1,15 @@
 import { inject, singleton } from 'tsyringe';
 
 import type { Todo } from '@/domain/todos/models';
-import { type TodoTable, TodoLocalDB } from './db';
 
+import TodoLocalDb, { type TodoTable } from './db';
 import { type TodoDataSource } from '../todo-datasource';
 
 @singleton()
 export class TodoLocalDatasource implements TodoDataSource {
   static readonly TOKEN = 'TodoLocalDatasource';
 
-  constructor(@inject(TodoLocalDB) private readonly todos: TodoTable) {}
+  constructor(@inject(TodoLocalDb.TOKEN) private readonly todos: TodoTable) {}
 
   async setTodos(todos: Todo[]): Promise<void> {
     return this.todos.bulkAdd(todos);

@@ -1,5 +1,6 @@
 import { Dexie } from 'dexie';
 import { singleton } from 'tsyringe';
+import type { DependencyContainer } from 'tsyringe';
 
 @singleton()
 export class AppDatabase extends Dexie {
@@ -15,5 +16,15 @@ export class AppDatabase extends Dexie {
     this.version(1).stores({
       todos: '++id, name, status',
     });
+  }
+
+  static provideTable(token: string, tableName: string) {
+    return [
+      token,
+      {
+        useFactory: (c: DependencyContainer) =>
+          c.resolve(AppDatabase).table(tableName),
+      },
+    ] as const;
   }
 }

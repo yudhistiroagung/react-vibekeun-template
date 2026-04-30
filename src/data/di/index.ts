@@ -5,15 +5,16 @@ import { AppDatabase } from '@/cores/database/db-dexie';
 import { TodoLocalDatasource } from '../todos/datasources/local/todo-local-datasource';
 import { TodoRemoteDatasource } from '../todos/datasources/remote/todo-remote-datasource';
 
-import { TodoLocalDB, TodoTableName } from '../todos/datasources/local/db';
+import TodoLocalDb from '../todos/datasources/local/db';
 
 /**
  * Inject Local Databases
  */
-container.register(TodoLocalDB, {
-  useFactory: (c) => c.resolve(AppDatabase).table(TodoTableName),
-});
+container.register(
+  ...AppDatabase.provideTable(TodoLocalDb.TOKEN, TodoLocalDb.TABLE_NAME),
+);
 
+/**
 /**
  * Inject Local/Remote Data Sources
  */
