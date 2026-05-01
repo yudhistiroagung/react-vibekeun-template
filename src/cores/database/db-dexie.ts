@@ -1,6 +1,6 @@
 import { Dexie } from 'dexie';
-import { singleton } from 'tsyringe';
 import type { DependencyContainer } from 'tsyringe';
+import { singleton } from 'tsyringe';
 
 @singleton()
 export class AppDatabase extends Dexie {

@@ -1,9 +1,8 @@
 import { inject, singleton } from 'tsyringe';
 
 import type { Todo } from '@/domain/todos/models';
-
+import type { TodoDataSource } from '../todo-datasource';
 import TodoLocalDb, { type TodoTable } from './db';
-import { type TodoDataSource } from '../todo-datasource';
 
 @singleton()
 export class TodoLocalDatasource implements TodoDataSource {

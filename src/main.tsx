@@ -1,10 +1,14 @@
 import 'reflect-metadata';
 
-import { createRouter, RouterProvider } from '@tanstack/react-router';
-import { StrictMode } from 'react';
+import { createRouter } from '@tanstack/react-router';
+import { StrictMode, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
+
 import './index.css';
 
+import { ComposeProvider } from '@/presentation/components/compose-provider';
+import { queryClient } from '@/presentation/services/query-client';
+import { getComposedProviders } from './main.handler';
 import { routeTree } from './routeTree.gen';
 
 // Create a new router instance
@@ -17,8 +21,21 @@ declare module '@tanstack/react-router' {
   }
 }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
-);
+const MainApp = () => {
+  const components = useMemo(
+    () =>
+      getComposedProviders({
+        client: queryClient,
+        router,
+      }),
+    [],
+  );
+
+  return (
+    <StrictMode>
+      <ComposeProvider components={components} />
+    </StrictMode>
+  );
+};
+
+createRoot(document.getElementById('root')!).render(<MainApp />);

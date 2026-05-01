@@ -30,7 +30,7 @@ export const useMenu1 = () => {
    */
   useEffect(() => {
     getTodos();
-  }, [mappedCount]);
+  }, [getTodos]);
 
   useEffect(() => {
     console.log('TODOS', todos);

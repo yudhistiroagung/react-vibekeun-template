@@ -1,8 +1,8 @@
+import typescript from '@rollup/plugin-typescript';
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { defineConfig } from 'vitest/config';
-import typescript from '@rollup/plugin-typescript';
 
 export default defineConfig({
   plugins: [

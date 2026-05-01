@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import type { Todo } from '@/domain/todos/models';
-
 import di from '@/di';
+import type { Todo } from '@/domain/todos/models';
 
 export const useGetTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);

@@ -1,7 +1,6 @@
 import { singleton } from 'tsyringe';
-
-import type { TodoDataSource } from '../todo-datasource';
 import type { Todo } from '@/domain/todos/models';
+import type { TodoDataSource } from '../todo-datasource';
 
 @singleton()
 export class TodoRemoteDatasource implements TodoDataSource {

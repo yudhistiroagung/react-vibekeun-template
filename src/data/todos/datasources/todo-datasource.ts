@@ -1,4 +1,4 @@
-import { type Todo } from '@/domain/todos/models/todo';
+import type { Todo } from '@/domain/todos/models/todo';
 
 export interface TodoDataSource {
   getTodos(): Promise<Todo[]>;

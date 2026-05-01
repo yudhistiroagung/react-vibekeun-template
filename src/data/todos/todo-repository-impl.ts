@@ -1,10 +1,9 @@
 import { inject, singleton } from 'tsyringe';
 
-import { type TodoRepository } from '@/domain/todos/todo-repository';
-
-import type { TodoDataSource } from './datasources/todo-datasource';
+import type { TodoRepository } from '@/domain/todos/todo-repository';
 import { TodoLocalDatasource } from './datasources/local/todo-local-datasource';
 import { TodoRemoteDatasource } from './datasources/remote/todo-remote-datasource';
+import type { TodoDataSource } from './datasources/todo-datasource';
 
 @singleton()
 export class TodoRepositoryImpl implements TodoRepository {

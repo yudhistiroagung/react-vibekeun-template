@@ -1,4 +1,4 @@
-import { type Table } from 'dexie';
+import type { Table } from 'dexie';
 
 import type { Todo } from '@/domain/todos/models';
 
