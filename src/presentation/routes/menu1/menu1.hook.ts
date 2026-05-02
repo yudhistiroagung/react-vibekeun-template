@@ -6,7 +6,7 @@ export const useMenu1 = () => {
   /**
    * custom hook usage
    */
-  const { todos, getTodos } = useGetTodos();
+  const { data: todos } = useGetTodos();
 
   /**
    * State Declarations
@@ -28,10 +28,6 @@ export const useMenu1 = () => {
   /**
    * Effect declarations
    */
-  useEffect(() => {
-    getTodos();
-  }, [getTodos]);
-
   useEffect(() => {
     console.log('TODOS', todos);
   }, [todos]);

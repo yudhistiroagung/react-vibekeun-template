@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+
+import type { QueryOptions } from '@/cores/tanstack-query/tanstack-query';
+
 import di from '@/di';
 import type { Todo } from '@/domain/todos/models';
 
-export const useGetTodos = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+type TodoQueryOption = QueryOptions<Todo[]>;
 
-  const getTodos = async () => {
-    const todos = await di.repositories.todoRepository.getTodos();
-    setTodos(todos);
-    return todos;
-  };
+export const useGetTodos = (options: TodoQueryOption = {}) => {
+  const queryMethods = useQuery({
+    queryKey: ['TODOS'],
+    queryFn: () => di.repositories.todoRepository.getTodos(),
+    ...options,
+  });
 
-  return {
-    todos,
-    getTodos,
-  };
+  return queryMethods;
 };

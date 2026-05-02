@@ -12,6 +12,6 @@ export const getComposedProviders = ({
   client,
   router,
 }: ComposeProvidersInput): ComponentAndProps[] => [
-  [QueryClientProvider, { client }],
   [RouterProvider, { router }],
+  [QueryClientProvider, { client }],
 ];

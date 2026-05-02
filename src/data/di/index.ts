@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 
-import { AppDatabase } from '@/cores/database/db-dexie';
+import { AppDatabase } from '@/cores/dexie/db-dexie';
 import TodoLocalDb from '../todos/datasources/local/db';
 import { TodoLocalDatasource } from '../todos/datasources/local/todo-local-datasource';
 import { TodoRemoteDatasource } from '../todos/datasources/remote/todo-remote-datasource';
