@@ -4,7 +4,7 @@ import { Sidebar } from '@/presentation/layouts/nav/sidebar';
 
 export function DesktopLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50">
+    <div className="flex min-h-screen flex-col bg-gray-50 mx-auto max-w-[1440px] w-full">
       <Header />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
