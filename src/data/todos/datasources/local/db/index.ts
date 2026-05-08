@@ -1,8 +1,8 @@
 import type { Table } from 'dexie';
 
-import type { Todo } from '@/domain/todos/models';
+import type { TodoEntity } from '../../../models';
 
-export type TodoTable = Table<Todo>;
+export type TodoTable = Table<TodoEntity>;
 export default {
   TOKEN: 'TodoLocalDBToken',
   TABLE_NAME: 'todos',

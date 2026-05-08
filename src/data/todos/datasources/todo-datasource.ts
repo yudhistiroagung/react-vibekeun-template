@@ -1,6 +1,4 @@
-import type { Todo } from '@/domain/todos/models/todo';
-
-export interface TodoDataSource {
-  getTodos(): Promise<Todo[]>;
-  setTodos(todos: Todo[]): Promise<void>;
+export interface TodoDataSource<T> {
+  getTodos(): Promise<T[]>;
+  setTodos(todos: T[]): Promise<void>;
 }

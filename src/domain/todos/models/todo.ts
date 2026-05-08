@@ -5,6 +5,8 @@ export const Todo = z.object({
   name: z.string(),
   status: z.boolean(),
   description: z.string(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 });
 
 export type Todo = z.infer<typeof Todo>;

@@ -1,12 +1,13 @@
 import { singleton } from 'tsyringe';
-import type { Todo } from '@/domain/todos/models';
+
+import type { TodoEntity } from '../../models';
 import type { TodoDataSource } from '../todo-datasource';
 
 @singleton()
-export class TodoRemoteDatasource implements TodoDataSource {
+export class TodoRemoteDatasource implements TodoDataSource<TodoEntity> {
   static readonly TOKEN = 'TodoRemoteDatasource';
 
-  async setTodos(_todos: Todo[]): Promise<void> {
+  async setTodos(_todos: TodoEntity[]): Promise<void> {
     // do nothing
   }
 
