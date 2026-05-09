@@ -10,3 +10,7 @@ Interview me relentlessly about every aspect of this plan until we reach a share
 Ask the questions one at a time.
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
+
+## Note
+- this is only dicussion and ideation process. Do NOT start implementing
+- if you dont have any question, ask me if me satisfied or not.
