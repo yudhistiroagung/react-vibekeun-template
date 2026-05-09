@@ -8,10 +8,11 @@ export class TodoRemoteDatasource implements TodoDataSource<TodoEntity> {
   static readonly TOKEN = 'TodoRemoteDatasource';
 
   async setTodos(_todos: TodoEntity[]): Promise<void> {
-    // do nothing
+    // TODO get todos from remote using axios
+    return Promise.resolve();
   }
 
   async getTodos() {
-    return [];
+    return Promise.resolve([]);
   }
 }
