@@ -2,6 +2,7 @@ import { type QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { type Router, RouterProvider } from '@tanstack/react-router';
 
 import type { ComponentAndProps } from '@/presentation/components/compose-provider';
+import { AuthProvider } from '@/presentation/contexts/auth-context';
 
 type ComposeProvidersInput = {
   client: QueryClient;
@@ -14,4 +15,5 @@ export const getComposedProviders = ({
 }: ComposeProvidersInput): ComponentAndProps[] => [
   [RouterProvider, { router }],
   [QueryClientProvider, { client }],
+  [AuthProvider, {}],
 ];

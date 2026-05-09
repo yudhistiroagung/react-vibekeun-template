@@ -1,29 +1,41 @@
 import { inject, singleton } from 'tsyringe';
-
+import type { Todo } from '@/domain/todos/models/todo';
 import type { TodoRepository } from '@/domain/todos/todo-repository';
 
 import { TodoLocalDatasource } from './datasources/local/todo-local-datasource';
-import { TodoRemoteDatasource } from './datasources/remote/todo-remote-datasource';
-import { todoDomainToEntity, todoDtoToDomain, todoEntityToDomain } from './mapper/todo-mapper';
-
-import type { TodoDataSource } from './datasources/todo-datasource';
-import type { TodoEntity, TodoDto } from './models';
+import { todoDomainToEntity, todoEntityToDomain } from './mapper/todo-mapper';
 
 @singleton()
 export class TodoRepositoryImpl implements TodoRepository {
   constructor(
-    @inject(TodoLocalDatasource.TOKEN) private local: TodoDataSource<TodoEntity>,
-    @inject(TodoRemoteDatasource.TOKEN) private remote: TodoDataSource<TodoDto>,
+    @inject(TodoLocalDatasource.TOKEN) private readonly local: TodoLocalDatasource,
   ) {}
 
-  async getTodos() {
-    let todos = await (await this.local.getTodos()).map(todoEntityToDomain);
+  async getTodos(userId: string) {
+    const todos = await this.local.getTodos(userId);
+    return todos.map(todoEntityToDomain);
+  }
 
-    if (todos.length === 0) {
-      todos = (await this.remote.getTodos()).map(todoDtoToDomain);
-      await this.local.setTodos(todos.map(todoDomainToEntity));
-    }
+  async createTodo(
+    todo: Omit<Todo, 'id' | 'createdAt' | 'updatedAt'> & { userId: string },
+  ): Promise<Todo> {
+    const newTodo: Todo = {
+      ...todo,
+      id: crypto.randomUUID(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    await this.local.createTodo(todoDomainToEntity(newTodo));
+    return newTodo;
+  }
 
-    return todos;
+  async updateTodo(todo: Todo): Promise<Todo> {
+    const updatedTodo = { ...todo, updatedAt: new Date() };
+    await this.local.updateTodo(todoDomainToEntity(updatedTodo));
+    return updatedTodo;
+  }
+
+  async deleteTodo(id: string): Promise<void> {
+    await this.local.deleteTodo(id);
   }
 }

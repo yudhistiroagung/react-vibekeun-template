@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 const TodoEntity = z.object({
   id: z.string(),
+  userId: z.string(),
   name: z.string(),
   status: z.boolean(),
   description: z.string(),

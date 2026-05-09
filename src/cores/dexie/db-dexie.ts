@@ -4,7 +4,7 @@ import { singleton } from 'tsyringe';
 
 @singleton()
 export class AppDatabase extends Dexie {
-  static readonly NAME = 'AppDatabase';
+  static readonly NAME = 'TodoAppDatabase';
 
   constructor() {
     super(AppDatabase.NAME);
@@ -14,7 +14,8 @@ export class AppDatabase extends Dexie {
 
   private initiate() {
     this.version(1).stores({
-      todos: '++id, name, status',
+      todos: 'id, userId, name, status, created_at',
+      users: 'id, username',
     });
   }
 

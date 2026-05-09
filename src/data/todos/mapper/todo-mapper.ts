@@ -1,9 +1,10 @@
-import { Todo } from '@/domain/todos/models';
+import type { Todo } from '@/domain/todos/models';
 
 import type { TodoDto, TodoEntity } from '../models';
 
 export const todoEntityToDomain = (todoEntity: TodoEntity): Todo => ({
   id: todoEntity.id,
+  userId: todoEntity.userId,
   name: todoEntity.name,
   status: todoEntity.status,
   description: todoEntity.description,
@@ -13,6 +14,7 @@ export const todoEntityToDomain = (todoEntity: TodoEntity): Todo => ({
 
 export const todoDtoToDomain = (todoDto: TodoDto): Todo => ({
   id: todoDto.id,
+  userId: todoDto.userId,
   name: todoDto.name,
   status: todoDto.status,
   description: todoDto.description,
@@ -22,6 +24,7 @@ export const todoDtoToDomain = (todoDto: TodoDto): Todo => ({
 
 export const todoDomainToEntity = (todo: Todo): TodoEntity => ({
   id: todo.id,
+  userId: todo.userId,
   name: todo.name,
   status: todo.status,
   description: todo.description,

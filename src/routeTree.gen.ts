@@ -9,86 +9,135 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './presentation/routes/__root'
-import { Route as IndexRouteImport } from './presentation/routes/index'
-import { Route as Menu2IndexRouteImport } from './presentation/routes/menu2/index'
-import { Route as Menu1IndexRouteImport } from './presentation/routes/menu1/index'
+import { Route as SignupRouteImport } from './presentation/routes/signup'
+import { Route as LoginRouteImport } from './presentation/routes/login'
+import { Route as ProtectedRouteImport } from './presentation/routes/_protected'
+import { Route as ProtectedIndexRouteImport } from './presentation/routes/_protected.index'
+import { Route as ProtectedTodosRouteImport } from './presentation/routes/_protected.todos'
 
-const IndexRoute = IndexRouteImport.update({
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProtectedRoute = ProtectedRouteImport.update({
+  id: '/_protected',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProtectedIndexRoute = ProtectedIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ProtectedRoute,
 } as any)
-const Menu2IndexRoute = Menu2IndexRouteImport.update({
-  id: '/menu2/',
-  path: '/menu2/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Menu1IndexRoute = Menu1IndexRouteImport.update({
-  id: '/menu1/',
-  path: '/menu1/',
-  getParentRoute: () => rootRouteImport,
+const ProtectedTodosRoute = ProtectedTodosRouteImport.update({
+  id: '/todos',
+  path: '/todos',
+  getParentRoute: () => ProtectedRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/menu1/': typeof Menu1IndexRoute
-  '/menu2/': typeof Menu2IndexRoute
+  '/': typeof ProtectedIndexRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/todos': typeof ProtectedTodosRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/menu1': typeof Menu1IndexRoute
-  '/menu2': typeof Menu2IndexRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/todos': typeof ProtectedTodosRoute
+  '/': typeof ProtectedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/menu1/': typeof Menu1IndexRoute
-  '/menu2/': typeof Menu2IndexRoute
+  '/_protected': typeof ProtectedRouteWithChildren
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/_protected/todos': typeof ProtectedTodosRoute
+  '/_protected/': typeof ProtectedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/menu1/' | '/menu2/'
+  fullPaths: '/' | '/login' | '/signup' | '/todos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/menu1' | '/menu2'
-  id: '__root__' | '/' | '/menu1/' | '/menu2/'
+  to: '/login' | '/signup' | '/todos' | '/'
+  id:
+    | '__root__'
+    | '/_protected'
+    | '/login'
+    | '/signup'
+    | '/_protected/todos'
+    | '/_protected/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  Menu1IndexRoute: typeof Menu1IndexRoute
-  Menu2IndexRoute: typeof Menu2IndexRoute
+  ProtectedRoute: typeof ProtectedRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_protected': {
+      id: '/_protected'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof ProtectedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_protected/': {
+      id: '/_protected/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ProtectedIndexRouteImport
+      parentRoute: typeof ProtectedRoute
     }
-    '/menu2/': {
-      id: '/menu2/'
-      path: '/menu2'
-      fullPath: '/menu2/'
-      preLoaderRoute: typeof Menu2IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/menu1/': {
-      id: '/menu1/'
-      path: '/menu1'
-      fullPath: '/menu1/'
-      preLoaderRoute: typeof Menu1IndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_protected/todos': {
+      id: '/_protected/todos'
+      path: '/todos'
+      fullPath: '/todos'
+      preLoaderRoute: typeof ProtectedTodosRouteImport
+      parentRoute: typeof ProtectedRoute
     }
   }
 }
 
+interface ProtectedRouteChildren {
+  ProtectedTodosRoute: typeof ProtectedTodosRoute
+  ProtectedIndexRoute: typeof ProtectedIndexRoute
+}
+
+const ProtectedRouteChildren: ProtectedRouteChildren = {
+  ProtectedTodosRoute: ProtectedTodosRoute,
+  ProtectedIndexRoute: ProtectedIndexRoute,
+}
+
+const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
+  ProtectedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  Menu1IndexRoute: Menu1IndexRoute,
-  Menu2IndexRoute: Menu2IndexRoute,
+  ProtectedRoute: ProtectedRouteWithChildren,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

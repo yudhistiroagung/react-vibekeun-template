@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Home, Settings, User } from 'lucide-react';
+import { CheckSquare, LayoutDashboard } from 'lucide-react';
 
 export function BottomTab() {
   return (
@@ -8,22 +8,15 @@ export function BottomTab() {
         to="/"
         className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
       >
-        <Home size={20} />
-        <span className="text-xs mt-1">Home</span>
+        <LayoutDashboard size={20} />
+        <span className="text-xs mt-1">Dashboard</span>
       </Link>
       <Link
-        to="/menu1"
+        to="/todos"
         className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
       >
-        <User size={20} />
-        <span className="text-xs mt-1">Menu 1</span>
-      </Link>
-      <Link
-        to="/menu2"
-        className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
-      >
-        <Settings size={20} />
-        <span className="text-xs mt-1">Menu 2</span>
+        <CheckSquare size={20} />
+        <span className="text-xs mt-1">Todos</span>
       </Link>
     </div>
   );
