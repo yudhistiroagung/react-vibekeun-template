@@ -1,6 +1,7 @@
 ARCHITECTURE
 =====================
 
+## Overview
 This architecture is a standard implementation of Clean Architecture. It ensures that  business logic is decoupled from external tools like databases or UI frameworks, making it easier to test and maintain.
 
 Here is a breakdown of the architecture when using multiple data sources (e.g., Local Database and Remote API).
@@ -25,7 +26,7 @@ Here is a breakdown of the architecture when using multiple data sources (e.g., 
 5. **DI:** Dependency Injection (DI) is used to manage the dependencies between the layers of the architecture. This layer is responsible for creating instances of the components in the layers above it and injecting them into the components below it.
 - Components: DI Container, DI Module, or other DI tools.
 
-### Folder Structure
+## Folder Structure
 ```
 src/
 ├── cores/
@@ -54,5 +55,5 @@ src/
     └── layouts/                        # Base Layout for the app
 ```
 
-### Note
+## Note
 use Todo related code as example (this may be deleted soon since it is a placeholder code), or use existing code as reference to understand the architecture.
