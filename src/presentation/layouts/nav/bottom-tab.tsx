@@ -12,18 +12,18 @@ export function BottomTab() {
         <span className="text-xs mt-1">Home</span>
       </Link>
       <Link
-        to="/menu1"
+        to="/goals"
         className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
       >
         <User size={20} />
-        <span className="text-xs mt-1">Menu 1</span>
+        <span className="text-xs mt-1">Goals</span>
       </Link>
       <Link
-        to="/menu2"
+        to="/stats"
         className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
       >
         <Settings size={20} />
-        <span className="text-xs mt-1">Menu 2</span>
+        <span className="text-xs mt-1">Stats</span>
       </Link>
     </div>
   );

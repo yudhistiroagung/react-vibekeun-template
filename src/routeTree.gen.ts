@@ -9,58 +9,72 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './presentation/routes/__root'
+import { Route as StatsRouteImport } from './presentation/routes/stats'
+import { Route as GoalsRouteImport } from './presentation/routes/goals'
 import { Route as IndexRouteImport } from './presentation/routes/index'
-import { Route as Menu2IndexRouteImport } from './presentation/routes/menu2/index'
-import { Route as Menu1IndexRouteImport } from './presentation/routes/menu1/index'
 
+const StatsRoute = StatsRouteImport.update({
+  id: '/stats',
+  path: '/stats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoalsRoute = GoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Menu2IndexRoute = Menu2IndexRouteImport.update({
-  id: '/menu2/',
-  path: '/menu2/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Menu1IndexRoute = Menu1IndexRouteImport.update({
-  id: '/menu1/',
-  path: '/menu1/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/menu1/': typeof Menu1IndexRoute
-  '/menu2/': typeof Menu2IndexRoute
+  '/goals': typeof GoalsRoute
+  '/stats': typeof StatsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/menu1': typeof Menu1IndexRoute
-  '/menu2': typeof Menu2IndexRoute
+  '/goals': typeof GoalsRoute
+  '/stats': typeof StatsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/menu1/': typeof Menu1IndexRoute
-  '/menu2/': typeof Menu2IndexRoute
+  '/goals': typeof GoalsRoute
+  '/stats': typeof StatsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/menu1/' | '/menu2/'
+  fullPaths: '/' | '/goals' | '/stats'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/menu1' | '/menu2'
-  id: '__root__' | '/' | '/menu1/' | '/menu2/'
+  to: '/' | '/goals' | '/stats'
+  id: '__root__' | '/' | '/goals' | '/stats'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  Menu1IndexRoute: typeof Menu1IndexRoute
-  Menu2IndexRoute: typeof Menu2IndexRoute
+  GoalsRoute: typeof GoalsRoute
+  StatsRoute: typeof StatsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/stats': {
+      id: '/stats'
+      path: '/stats'
+      fullPath: '/stats'
+      preLoaderRoute: typeof StatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/goals': {
+      id: '/goals'
+      path: '/goals'
+      fullPath: '/goals'
+      preLoaderRoute: typeof GoalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -68,27 +82,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/menu2/': {
-      id: '/menu2/'
-      path: '/menu2'
-      fullPath: '/menu2/'
-      preLoaderRoute: typeof Menu2IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/menu1/': {
-      id: '/menu1/'
-      path: '/menu1'
-      fullPath: '/menu1/'
-      preLoaderRoute: typeof Menu1IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  Menu1IndexRoute: Menu1IndexRoute,
-  Menu2IndexRoute: Menu2IndexRoute,
+  GoalsRoute: GoalsRoute,
+  StatsRoute: StatsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
