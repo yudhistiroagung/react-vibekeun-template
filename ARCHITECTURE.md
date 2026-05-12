@@ -21,7 +21,7 @@ Here is a breakdown of the architecture when using multiple data sources (e.g., 
 - Mappers: Converts "Data Transfer Objects" (DTOs) from APIs into "Entities" used by the Domain layer.
 
 4. **Core Layer:** This layer contains the core components of the app that are shared across multiple features.
-- Components: Utils, Constants, Enums, or other common code.
+- Components: initialization of TanStack Query, Axios, Retrofit, or other common code.
 
 5. **DI:** Dependency Injection (DI) is used to manage the dependencies between the layers of the architecture. This layer is responsible for creating instances of the components in the layers above it and injecting them into the components below it.
 - Components: DI Container, DI Module, or other DI tools.
@@ -44,15 +44,15 @@ src/
 |       └── datasources/
 |           ├── local/                  # Database logic (Room/SQL)
 |           └── remote/                 # API logic (Retrofit/Network)
-└── presentation/
-    ├── components/                     # Reusalbe UI components such as Button, Input, etc
-    ├── hooks/                          # Business Logic using custom hooks per usecase using tanstack query
-    └── routes/                         # Page component routes based on tanstack router
-        └── {route-name}/               # Page component such as `Dashboard Page/Screen`
-            ├── -components/            # Sub components for that spesific route
-            └── {route-name}.hook.ts/   # Custom hook as presenter
-    ├── utils/                          # Common utils such as date formatter, number formatter, etc
-    └── layouts/                        # Base Layout for the app
+├── presentation/
+|   ├── components/                     # Reusalbe UI components such as Button, Input, etc
+|   ├── hooks/                          # Business Logic using custom hooks per usecase using tanstack query
+|   ├── routes/                         # Page component routes based on tanstack router
+|   |   └── {route-name}/               # Page component such as `Dashboard Page/Screen`
+|   |       ├── -components/            # Sub components for that spesific route
+|   |       └── {route-name}.hook.ts/   # Custom hook as presenter
+|   ├── utils/                          # Common utils such as date formatter, number formatter, etc
+|   └── layouts/                        # Base Layout for the app
 ```
 
 ## Note
