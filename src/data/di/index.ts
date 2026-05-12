@@ -1,10 +1,10 @@
 import { container } from 'tsyringe';
 
 import { AppDatabase } from '@/cores/dexie/db-dexie';
-import { LogLocalDatasource } from '../logs/datasources/local/log-local-datasource';
 import TodoLocalDb from '../todos/datasources/local/db';
 import { TodoLocalDatasource } from '../todos/datasources/local/todo-local-datasource';
 import { TodoRemoteDatasource } from '../todos/datasources/remote/todo-remote-datasource';
+import { LogLocalDatasource } from '../logs/datasources/local/log-local-datasource';
 
 /**
  * Inject Local Databases
