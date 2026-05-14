@@ -4,15 +4,19 @@ import type { TodoRepository } from '@/domain/todos/todo-repository';
 
 import { TodoLocalDatasource } from './datasources/local/todo-local-datasource';
 import { TodoRemoteDatasource } from './datasources/remote/todo-remote-datasource';
-import { todoDomainToEntity, todoDtoToDomain, todoEntityToDomain } from './mapper/todo-mapper';
-
 import type { TodoDataSource } from './datasources/todo-datasource';
-import type { TodoEntity, TodoDto } from './models';
+import {
+  todoDomainToEntity,
+  todoDtoToDomain,
+  todoEntityToDomain,
+} from './mapper/todo-mapper';
+import type { TodoDto, TodoEntity } from './models';
 
 @singleton()
 export class TodoRepositoryImpl implements TodoRepository {
   constructor(
-    @inject(TodoLocalDatasource.TOKEN) private local: TodoDataSource<TodoEntity>,
+    @inject(TodoLocalDatasource.TOKEN)
+    private local: TodoDataSource<TodoEntity>,
     @inject(TodoRemoteDatasource.TOKEN) private remote: TodoDataSource<TodoDto>,
   ) {}
 

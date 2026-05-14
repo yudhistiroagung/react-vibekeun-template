@@ -1,4 +1,4 @@
-import { Todo } from '@/domain/todos/models';
+import type { Todo } from '@/domain/todos/models';
 
 import type { TodoDto, TodoEntity } from '../models';
 
