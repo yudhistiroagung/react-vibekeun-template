@@ -1,20 +1,14 @@
 ---
 name: how-to-create-domain
-description: Understanding how to create a new domain layer on the project.
+description: Use this skill when we want to create NEW domain layer for the project.
 ---
-
-## Overview
-Create a new domain layer for the project.
-
-## When to Use
-Use this skill when we want to create new domain layer for the project.
 
 ## Instructions
 When creating new domain layer, follow the steps steps:
 - **Step 1:** Create folder under `src/domain/{domain-name}` with new domain name
 - **Step 2:** for models, create folder under `src/domain/{domain-name}/models`
 - **Step 3:** Create new model using Zod Schema
-- **Step 4:** create repository interface as a contract under `src/domain/{domain-name}/{domain-name}-repository.ts`
+- **Step 4:** create repository interface as a contract in `src/domain/{domain-name}/{domain-name}-repository.ts`
 
 ## Example
 

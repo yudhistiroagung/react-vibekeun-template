@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './presentation/routes/__root'
 import { Route as IndexRouteImport } from './presentation/routes/index'
 import { Route as ProfilesIndexRouteImport } from './presentation/routes/profiles/index'
-import { Route as Menu2IndexRouteImport } from './presentation/routes/menu2/index'
+import { Route as AchievementsIndexRouteImport } from './presentation/routes/achievements/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,39 +23,39 @@ const ProfilesIndexRoute = ProfilesIndexRouteImport.update({
   path: '/profiles/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Menu2IndexRoute = Menu2IndexRouteImport.update({
-  id: '/menu2/',
-  path: '/menu2/',
+const AchievementsIndexRoute = AchievementsIndexRouteImport.update({
+  id: '/achievements/',
+  path: '/achievements/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/menu2/': typeof Menu2IndexRoute
+  '/achievements/': typeof AchievementsIndexRoute
   '/profiles/': typeof ProfilesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/menu2': typeof Menu2IndexRoute
+  '/achievements': typeof AchievementsIndexRoute
   '/profiles': typeof ProfilesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/menu2/': typeof Menu2IndexRoute
+  '/achievements/': typeof AchievementsIndexRoute
   '/profiles/': typeof ProfilesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/menu2/' | '/profiles/'
+  fullPaths: '/' | '/achievements/' | '/profiles/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/menu2' | '/profiles'
-  id: '__root__' | '/' | '/menu2/' | '/profiles/'
+  to: '/' | '/achievements' | '/profiles'
+  id: '__root__' | '/' | '/achievements/' | '/profiles/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  Menu2IndexRoute: typeof Menu2IndexRoute
+  AchievementsIndexRoute: typeof AchievementsIndexRoute
   ProfilesIndexRoute: typeof ProfilesIndexRoute
 }
 
@@ -75,11 +75,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfilesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/menu2/': {
-      id: '/menu2/'
-      path: '/menu2'
-      fullPath: '/menu2/'
-      preLoaderRoute: typeof Menu2IndexRouteImport
+    '/achievements/': {
+      id: '/achievements/'
+      path: '/achievements'
+      fullPath: '/achievements/'
+      preLoaderRoute: typeof AchievementsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -87,7 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  Menu2IndexRoute: Menu2IndexRoute,
+  AchievementsIndexRoute: AchievementsIndexRoute,
   ProfilesIndexRoute: ProfilesIndexRoute,
 }
 export const routeTree = rootRouteImport

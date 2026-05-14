@@ -20,7 +20,7 @@ export function Sidebar() {
           Profiles
         </Link>
         <Link
-          to="/menu2"
+          to="/achievements"
           className="flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors [&.active]:bg-blue-50 [&.active]:text-blue-600 [&.active]:font-medium"
         >
           <Trophy size={20} />

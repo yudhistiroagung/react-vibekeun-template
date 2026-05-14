@@ -1,13 +1,7 @@
 ---
 name: how-to-create-local-datasource
-description: Understanding how to create a new datasource on data layer providing local source(s).
+description: Use this skill when we want to create NEW local datasource on data layer.
 ---
-
-## Overview
-This layer will be responsible for persisting data to local storage.
-
-## When to Use
-Use this skill when we want to create new datasource on data layer local source(s).
 
 ## Instruction
 When creating a new datasource, we need to follow the steps:

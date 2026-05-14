@@ -34,10 +34,10 @@ A behavioral tracker application designed to help users build habits and complet
 ### US-003: App Navigation
 **Description:** As a user, I want clear navigation so I can easily move between my daily tasks, profile settings, and achievements.
 **Acceptance Criteria:**
-- [ ] Implement bottom/side navigation with three tabs: Home, Profiles, Achievements.
-- [ ] Active tab is visually highlighted.
-- [ ] Typecheck/lint passes.
-- [ ] Verify in browser using dev-browser skill.
+- [x] Implement bottom/side navigation with three tabs: Home, Profiles, Achievements.
+- [x] Active tab is visually highlighted.
+- [x] Typecheck/lint passes.
+- [x] Verify in browser using dev-browser skill.
 
 ### US-004: Task Creation
 **Description:** As a user, I want to create new tasks with custom points and recurrence settings so I can track my specific goals.

@@ -19,7 +19,7 @@ export function BottomTab() {
         <span className="text-xs mt-1">Profiles</span>
       </Link>
       <Link
-        to="/menu2"
+        to="/achievements"
         className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
       >
         <Trophy size={20} />
