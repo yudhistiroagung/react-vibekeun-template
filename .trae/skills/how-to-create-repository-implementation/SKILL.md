@@ -1,7 +1,9 @@
 ---
 name: how-to-create-repository-implementation
-description: Use this skill when we want to create NEW repository implementation on data layer.
+description: create NEW repository implementation on data layer.
 ---
+
+Use this skill when we want to create NEW repository implementation on data layer.
 
 ## Instruction
 - **Step 1:** Create class implementation in `/src/data/{data-name}/{data-name}-repository-impl.ts`

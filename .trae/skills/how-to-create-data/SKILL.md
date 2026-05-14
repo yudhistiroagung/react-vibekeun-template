@@ -1,7 +1,9 @@
 ---
 name: how-to-create-data
-description: Use this skill when we want to create NEW data layer for the project.
+description: create NEW data layer for the project.
 ---
+
+Use this skill when we want to create NEW data layer for the project.
 
 ## Instructions
 When creating new data layer, follow the steps steps:

@@ -1,7 +1,9 @@
 ---
 name: how-to-create-domain
-description: Use this skill when we want to create NEW domain layer for the project.
+description: reate NEW domain layer for the project.
 ---
+
+Use this skill when we want to create NEW domain layer for the project.
 
 ## Instructions
 When creating new domain layer, follow the steps steps:

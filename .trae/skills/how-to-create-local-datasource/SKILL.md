@@ -1,7 +1,9 @@
 ---
 name: how-to-create-local-datasource
-description: Use this skill when we want to create NEW local datasource on data layer.
+description: create NEW local datasource on data layer.
 ---
+
+Use this skill when we want to create NEW local datasource on data layer.
 
 ## Instruction
 When creating a new datasource, we need to follow the steps:
