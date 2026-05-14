@@ -6,8 +6,8 @@ import { createRoot } from 'react-dom/client';
 
 import './index.css';
 
+import { queryClient } from '@/cores/tanstack-query/client';
 import { ComposeProvider } from '@/presentation/components/compose-provider';
-import { queryClient } from '@/presentation/services/query-client';
 import { getComposedProviders } from './main.handler';
 import { routeTree } from './routeTree.gen';
 

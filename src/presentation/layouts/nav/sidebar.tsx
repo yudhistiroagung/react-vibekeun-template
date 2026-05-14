@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Home, Settings, User } from 'lucide-react';
+import { Home, Trophy, User } from 'lucide-react';
 
 export function Sidebar() {
   return (
@@ -13,18 +13,18 @@ export function Sidebar() {
           Home
         </Link>
         <Link
-          to="/menu1"
+          to="/profiles"
           className="flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors [&.active]:bg-blue-50 [&.active]:text-blue-600 [&.active]:font-medium"
         >
           <User size={20} />
-          Menu 1
+          Profiles
         </Link>
         <Link
           to="/menu2"
           className="flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors [&.active]:bg-blue-50 [&.active]:text-blue-600 [&.active]:font-medium"
         >
-          <Settings size={20} />
-          Menu 2
+          <Trophy size={20} />
+          Achievements
         </Link>
       </nav>
     </div>

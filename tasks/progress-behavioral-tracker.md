@@ -8,12 +8,12 @@
 - [x] Typecheck/lint passes.
 
 ## US-002: Profile Management
-- [ ] App loads a default profile on startup (creates one if none exist).
-- [ ] "Profiles" navigation tab displays a list of all profiles.
-- [ ] Users can create a new profile.
-- [ ] Users can switch the active profile.
-- [ ] Typecheck/lint passes.
-- [ ] Verify in browser using dev-browser skill.
+- [x] App loads a default profile on startup (creates one if none exist).
+- [x] "Profiles" navigation tab displays a list of all profiles.
+- [x] Users can create a new profile.
+- [x] Users can switch the active profile.
+- [x] Typecheck/lint passes.
+- [x] Verify in browser using dev-browser skill.
 
 ## US-003: App Navigation
 - [ ] Implement bottom/side navigation with three tabs: Home, Profiles, Achievements.

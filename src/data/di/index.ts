@@ -7,16 +7,10 @@ import TaskLogLocalDb from '../task-logs/datasources/local/db';
 import { TaskLogLocalDatasource } from '../task-logs/datasources/local/task-log-local-datasource';
 import TaskLocalDb from '../tasks/datasources/local/db';
 import { TaskLocalDatasource } from '../tasks/datasources/local/task-local-datasource';
-import TodoLocalDb from '../todos/datasources/local/db';
-import { TodoLocalDatasource } from '../todos/datasources/local/todo-local-datasource';
-import { TodoRemoteDatasource } from '../todos/datasources/remote/todo-remote-datasource';
 
 /**
  * Inject Local Databases
  */
-container.register(
-  ...AppDatabase.provideTable(TodoLocalDb.TOKEN, TodoLocalDb.TABLE_NAME),
-);
 container.register(
   ...AppDatabase.provideTable(ProfileLocalDb.TOKEN, ProfileLocalDb.TABLE_NAME),
 );
@@ -30,8 +24,6 @@ container.register(
 /**
  * Inject Local/Remote Data Sources
  */
-container.register(TodoLocalDatasource.TOKEN, TodoLocalDatasource);
-container.register(TodoRemoteDatasource.TOKEN, TodoRemoteDatasource);
 container.register(ProfileLocalDatasource.TOKEN, ProfileLocalDatasource);
 container.register(TaskLocalDatasource.TOKEN, TaskLocalDatasource);
 container.register(TaskLogLocalDatasource.TOKEN, TaskLogLocalDatasource);

@@ -21,7 +21,7 @@ export class AppDatabase extends Dexie {
   }
 
   private initiate() {
-    this.version(1).stores({
+    this.version(2).stores({
       profiles: '++id, name, isDefault, createdAt',
       tasks: '++id, profileId, type, createdAt',
       taskLogs: '++id, taskId, profileId, completedAt',

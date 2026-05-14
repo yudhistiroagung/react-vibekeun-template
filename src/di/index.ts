@@ -1,11 +1,15 @@
 import { container } from 'tsyringe';
 
-import { TodoRepositoryImpl } from '@/data/todos/todo-repository-impl';
+import { ProfileRepositoryImpl } from '@/data/profiles/profile-repository-impl';
+import { TaskLogRepositoryImpl } from '@/data/task-logs/task-log-repository-impl';
+import { TaskRepositoryImpl } from '@/data/tasks/task-repository-impl';
 
 import '@/data/di';
 
 const repositories = {
-  todoRepository: container.resolve(TodoRepositoryImpl),
+  profileRepository: container.resolve(ProfileRepositoryImpl),
+  taskRepository: container.resolve(TaskRepositoryImpl),
+  taskLogRepository: container.resolve(TaskLogRepositoryImpl),
 };
 
 export default {
