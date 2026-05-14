@@ -1,22 +1,17 @@
 ---
-name: how-to-create-data
-description: create NEW data layer for the project.
+name: data-layer-scaffold
+description: >
+  Use this skill when creating a NEW data layer for the project.
+  This sets up the full data layer structure: folder, Zod models (entity + dto),
+  datasources, repository implementation, and mapper functions.
+  Triggers: "create data layer", "add new data", "scaffold data", "new repository".
+  Do NOT use for modifying existing data layers or creating UI/domain layers.
 ---
 
-Use this skill when we want to create NEW data layer for the project.
+## Overview
+Creates a complete data layer for a new feature under `src/data/{data-name}/`.
 
-## Instructions
-When creating new data layer, follow the steps steps:
-- **Step 1:** Create folder under `src/data/{data-name}` with new data name
-- **Step 2:** for models, create folder under `src/data/{data-name}/models`
-- **Step 3:** Create new model using Zod Schema, there may be 2 different type of models, one is for local database and one is for remote database, local use `{model-name}-entity.ts` and remote use `{model-name}-dto.ts`, using Zod Schema to define the model schema
-- **Step 4:** create data source, there will be at least 1 datasource, and may have multiple datasources, use this skill `how-to-create-local-datasource` or `how-to-create-remote-datasource` for detail implementation
-- **Step 5:** create repository implementation, use this skill `how-to-create-repository-implementation` for detail implementation
-- **Step 6:** create mapper functions to convert between entity and dto to domain model or vise versa
-
-## Example
-
-- Folder structure of new data for `product`
+The structure produced:
 ```
 src/
 ├── data/
@@ -30,7 +25,19 @@ src/
 |       └── product-repository-impl.ts   
 ```
 
-- Product model (use the same schema as the product model)
+## Steps
+
+**Step 1 — Create the folder**
+Create `src/data/{data-name}/`.
+
+**Step 2 — Define models** (in `models/`)
+Use Zod Schema for all models. Two types:
+- `{name}-entity.ts` — local database model
+- `{name}-dto.ts` — remote API model
+
+Both may not always be needed; create only what applies.
+
+Example:
 ```ts
 import { z } from 'zod';
 
@@ -41,20 +48,23 @@ export const ProductEntity = z.object({
 });
 
 export type ProductEntity = z.infer<typeof ProductEntity>;
-
-// or 
-export const ProductDto = z.object({
-  id: z.string(),
-  name: z.string(),
-  unit_cost: z.number(),
-});
-
-export type ProductDto = z.infer<typeof ProductDto>;
 ```
 
-- Mapper implementation
+**Step 3 — Create datasources**
+At least one datasource is required. Follow the appropriate linked skill:
+- Local → use skill `create-local-datasource`
+- Remote → use skill `create-remote-datasource`
+
+**Step 4 — Create repository implementation**
+Follow the linked skill: `create-repository-implementation`
+
+**Step 5 — Create mapper functions**
+In `mapper/{name}-mapper.ts`, write functions to convert:
+- entity ↔ domain model
+- dto ↔ domain model
+
+Example:
 ```ts
 export const productEntityDomain = (entity: ProductEntity): Product => ({ ... });
 export const productDtoDomain = (entity: ProductEntity): Product => ({ ... });
-
 ```
