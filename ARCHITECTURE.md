@@ -1,59 +1,141 @@
-ARCHITECTURE
-=====================
+# Architecture
 
 ## Overview
-This architecture is a standard implementation of Clean Architecture. It ensures that  business logic is decoupled from external tools like databases or UI frameworks, making it easier to test and maintain.
+This project follows **Clean Architecture** — business logic is fully decoupled from external tools (databases, UI frameworks, network clients), making each layer independently testable and maintainable.
 
-Here is a breakdown of the architecture when using multiple data sources (e.g., Local Database and Remote API).
+Data flows in one direction:
 
-1. **Presentation Layer:** This layer is the entry point for the user. It handles the UI and user interactions.
-- Components: Views (React Native, Flutter, or SwiftUI).
-- Responsibility: It listens to user inputs, triggers actions in the Domain layer, and observes data changes to update the screen.
+```
+Presentation → Domain ← Data
+                 ↑
+               Core / DI
+```
 
-2. **Domain Layer:** The most stable and central part of the app. It contains the pure business logic.
-- Models: Simple data models used across the app (e.g., User, Order).
-- Repository Interfaces: Defines the contract for data operations. It tells the app what data is needed, but not how to get it.
+The Domain layer is the center. It knows nothing about the outside world. Presentation and Data both depend on it — never the other way around.
 
-3. **Data Layer:** The implementation detail of the Domain's repository interface. This is where Multiple Data Sources are managed. 
+---
 
-- Repository Implementation: The "Brain" that decides whether to fetch data from the Network or the Cache.Remote Data Source: Handles API calls (e.g., using Retrofit, Axios, or Ktor).
-- Local Data Source: Handles local storage (e.g., Room, SQLite, or Hive).
-- Mappers: Converts "Data Transfer Objects" (DTOs) from APIs into "Entities" used by the Domain layer.
+## Layers
 
-4. **Core Layer:** This layer contains the core components of the app that are shared across multiple features.
-- Components: initialization of TanStack Query, Axios, Retrofit, or other common code.
+### 1. Presentation
+Handles UI and user interaction only. Contains no business logic.
 
-5. **DI:** Dependency Injection (DI) is used to manage the dependencies between the layers of the architecture. This layer is responsible for creating instances of the components in the layers above it and injecting them into the components below it.
-- Components: DI Container, DI Module, or other DI tools.
+| Part | Purpose |
+|---|---|
+| `components/` | Reusable UI components (Button, Input, etc.) |
+| `hooks/` | One custom hook per use-case, powered by TanStack Query |
+| `routes/` | Page-level components via TanStack Router |
+| `routes/{name}/-components/` | Components scoped to that route only |
+| `routes/{name}/{name}.hook.ts` | Presenter hook for that route |
+| `layouts/` | Base layout wrappers |
+| `utils/` | Formatting helpers (dates, numbers, etc.) |
+
+---
+
+### 2. Domain
+The most stable layer. Contains pure business logic with **no framework dependencies**.
+
+| Part | Purpose |
+|---|---|
+| `models/` | Plain business models (e.g. `Product`, `User`) |
+| `{name}-repository.ts` | Repository **interface** only — defines what data is needed, not how to get it |
+
+> Never import from `data/` or `presentation/` here.
+
+---
+
+### 3. Data
+Implements the Domain's repository interfaces. Decides where data comes from.
+
+| Part | Purpose |
+|---|---|
+| `models/` | `*-entity.ts` (local DB shape), `*-dto.ts` (remote API shape) |
+| `mappers/` | Converts entity/DTO ↔ domain model |
+| `datasources/local/` | Dexie/IndexedDB logic |
+| `datasources/remote/` | API client logic (Axios, etc.) |
+| Repository impl | Orchestrates datasources, returns domain models |
+
+> The repository implementation is the only place that decides whether to read from local or remote.
+
+---
+
+### 4. Core
+Shared infrastructure used across all layers.
+
+| Part | Purpose |
+|---|---|
+| `cores/{library}/` | Bootstrap and config for external libraries (TanStack Query, Axios, Dexie, etc.) |
+
+---
+
+### 5. DI (Dependency Injection)
+Wires all layers together using `tsyringe`. No business logic lives here.
+
+| Part | Purpose |
+|---|---|
+| `di/index.ts` | Registers all classes and tokens into the container |
+
+---
 
 ## Folder Structure
+
 ```
 src/
 ├── cores/
-|   └── {external-library}/             # External libraries such as tanstack-query, axios, retrofit, etc
+│   └── {library}/                  # External library setup (tanstack-query, axios, dexie, etc.)
 ├── di/
-|   └── index.ts                        # DI container using tsyringe
+│   └── index.ts                    # DI container registrations (tsyringe)
 ├── domain/
-|   └── {domain-name}/
-|       ├── models/                     # Business Model
-|       ├── repository.ts               # INTERFACE only
+│   └── {domain-name}/
+│       ├── models/                 # Business models (Zod schema + inferred type)
+│       └── {name}-repository.ts   # Repository interface (contract only, no implementation)
 ├── data/
-|   └── {data-name}/
-|       ├── models/                     # DTOs (Data Transfer Objects)
-|       ├── mappers/                    # Logic to convert data source DTO/entity ↔ Domain Model
-|       └── datasources/
-|           ├── local/                  # Database logic (Room/SQL)
-|           └── remote/                 # API logic (Retrofit/Network)
-├── presentation/
-|   ├── components/                     # Reusalbe UI components such as Button, Input, etc
-|   ├── hooks/                          # Business Logic using custom hooks per usecase using tanstack query
-|   ├── routes/                         # Page component routes based on tanstack router
-|   |   └── {route-name}/               # Page component such as `Dashboard Page/Screen`
-|   |       ├── -components/            # Sub components for that spesific route
-|   |       └── {route-name}.hook.ts/   # Custom hook as presenter
-|   ├── utils/                          # Common utils such as date formatter, number formatter, etc
-|   └── layouts/                        # Base Layout for the app
+│   └── {data-name}/
+│       ├── models/
+│       │   ├── {name}-entity.ts   # Local DB model
+│       │   └── {name}-dto.ts      # Remote API model
+│       ├── mappers/               # entity/dto ↔ domain model conversion functions
+│       └── datasources/
+│           ├── {name}-datasource.ts    # Shared datasource interface
+│           ├── local/
+│           │   ├── db/index.ts         # Dexie table config + DI token
+│           │   └── {name}-local-datasource.ts
+│           └── remote/
+│               └── {name}-remote-datasource.ts
+└── presentation/
+    ├── components/                 # Reusable UI components
+    ├── hooks/                      # Shared custom hooks
+    ├── layouts/                    # Base layout wrappers
+    ├── utils/                      # Formatting helpers
+    └── routes/
+        └── {route-name}/
+            ├── -components/            # Components scoped to this route
+            ├── index.ts                # main route component
+            └── {route-name}.hook.ts    # Presenter hook for this route
 ```
 
-## Note
-use Todo related code as example (this may be deleted soon since it is a placeholder code), or use existing code as reference to understand the architecture.
+---
+
+## Dependency Rule
+| Layer | Can import from |
+|---|---|
+| Presentation | Domain, Core |
+| Data | Domain, Core |
+| Domain | Nothing (no imports from other layers) |
+| Core | Nothing |
+| DI | Everything (this is its job) |
+
+Violating this table is an architecture bug.
+
+---
+
+## Skills Reference
+Use these skills when scaffolding new features:
+
+| Task | Skill |
+|---|---|
+| New domain layer | `create-domain-layer` |
+| New data layer | `data-layer-scaffold` |
+| New local datasource | `create-local-datasource` |
+| New remote datasource | `create-remote-datasource` |
+| New repository implementation | `create-repository-implementation` |
