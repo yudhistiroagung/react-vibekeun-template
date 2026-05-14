@@ -36,7 +36,7 @@ src/
 ├── domain/
 |   └── {domain-name}/
 |       ├── models/                     # Business Model
-|       ├── repository.ts               # INTERFACES only
+|       ├── repository.ts               # INTERFACE only
 ├── data/
 |   └── {data-name}/
 |       ├── models/                     # DTOs (Data Transfer Objects)
