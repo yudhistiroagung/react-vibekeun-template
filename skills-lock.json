@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "skills": {
+    "codebase-scan": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/codebase-scan/SKILL.md",
+      "computedHash": "7201c7579bd05df9250f1fb0c01a0ab4ec80083f88c911f057d385acea2704d0"
+    },
+    "create-domain-layer": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-domain-layer/SKILL.md",
+      "computedHash": "a282b35eb228c43e5e041d3a56151fbbafef5848b7ceec45459b1b0a0e5a20e3"
+    },
+    "create-local-datasource": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-local-datasource/SKILL.md",
+      "computedHash": "ffa6be372969408214bbf45ec69f182fd32b1b0c8155de1ec46abc6b99d259e6"
+    },
+    "create-react-presenter-hook": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-presenter-hook/SKILL.md",
+      "computedHash": "dfb73ebe45939141823696355f2a52f5598f1b37d45097c612caeb8508cbae78"
+    },
+    "create-remote-datasource": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-remote-datasource/SKILL.md",
+      "computedHash": "a832713fdb9da756d0d2c99771f92517f7d231e37a9cc8949fc32b6c273851e5"
+    },
+    "create-repository-implementation": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-repository-implementation/SKILL.md",
+      "computedHash": "19fdea53e21e4eca3fae7e1f14eddd0fdc56276a7f75e26882bada12900b019b"
+    },
+    "data-layer-scaffold": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/data-layer-scaffold/SKILL.md",
+      "computedHash": "d1577389db1ac2e97c77875dbf8388aafe1cc0a230e71206b12a1546159ed5ee"
+    },
+    "implement": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/implement/SKILL.md",
+      "computedHash": "b66d9de1dafe8900acfdbff0de10fe204d78374b00a742e18914c6c3b0113d6a"
+    },
+    "prd": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/to-prd/SKILL.md",
+      "computedHash": "7deaf2f2738921df6f3d288e17d956268c2fec9f3d75e5940d1252fe45cabd23"
+    },
+    "propose": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/propose/SKILL.md",
+      "computedHash": "2b2a0aa478702e80f2c012e040e815fc724ef787b797d8609cc96ac58c0ee1aa"
+    },
+    "split-prd": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/split-prd/SKILL.md",
+      "computedHash": "71b86ed546bae5ba63aa089ef1b66b4c1a7959b95df4668f5b28ff7b776469c1"
+    }
+  }
+}
