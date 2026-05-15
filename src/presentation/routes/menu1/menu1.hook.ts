@@ -1,8 +1,14 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useRouter } from '@tanstack/react-router';
 
 import { useGetTodos } from '@/presentation/hooks/use-get-todos';
 
 export const useMenu1 = () => {
+  /**
+   * hook from external library like navigation, etc
+   */
+  const { navigate } = useRouter();
+
   /**
    * custom hook usage
    */
@@ -16,7 +22,7 @@ export const useMenu1 = () => {
   /**
    * Derived state declaration
    */
-  const mappedCount = `This is ${count}`;
+  const mappedCount =  useMemo(() => `This is ${count}`, [count]) ;
 
   /**
    * Function handlers declarations
@@ -27,6 +33,7 @@ export const useMenu1 = () => {
 
   /**
    * Effect declarations
+   * 1 effect only do one thing
    */
   useEffect(() => {
     console.log('TODOS', todos);
@@ -36,5 +43,6 @@ export const useMenu1 = () => {
     count,
     mappedCount,
     increaseCount,
+    navigate,
   };
 };
