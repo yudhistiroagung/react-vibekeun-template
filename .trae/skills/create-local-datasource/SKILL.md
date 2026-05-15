@@ -7,6 +7,7 @@ description: >
   Triggers: "create local datasource", "add local DB source", "scaffold local data", "new dexie table".
   Do NOT use for remote datasources (use `create-remote-datasource`) or
   repository implementation (use `create-repository-implementation`).
+author: yudhistiroagung
 ---
 
 ## Overview

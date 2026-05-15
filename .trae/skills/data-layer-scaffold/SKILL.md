@@ -6,6 +6,7 @@ description: >
   datasources, repository implementation, and mapper functions.
   Triggers: "create data layer", "add new data", "scaffold data", "new repository".
   Do NOT use for modifying existing data layers or creating UI/domain layers.
+author: yudhistiroagung
 ---
 
 ## Overview

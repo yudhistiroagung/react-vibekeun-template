@@ -1,6 +1,7 @@
 ---
 name: codebase-scan
 description: Perform a systematic scan of the codebase to map the project structure, architecture, dependencies and code conventions.
+author: yudhistiroagung
 ---
 
 # Codebase Scan

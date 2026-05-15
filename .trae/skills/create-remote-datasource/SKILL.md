@@ -7,6 +7,7 @@ description: >
   Triggers: "create remote datasource", "add API datasource", "scaffold remote data", "new API source".
   Do NOT use for local datasources (use `create-local-datasource`) or
   repository implementation (use `create-repository-implementation`).
+author: yudhistiroagung
 ---
 
 ## Overview

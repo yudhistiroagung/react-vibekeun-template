@@ -6,6 +6,7 @@ description: >
   and repository interface (contract).
   Triggers: "create domain layer", "add new domain", "scaffold domain", "new domain model".
   Do NOT use for data layer, repository implementation, or UI layer.
+author: yudhistiroagung
 ---
 
 ## Overview

@@ -6,6 +6,7 @@ description: >
   Triggers: "implement repository", "create repository impl", "wire datasource to repository".
   Do NOT use for defining the repository interface (use `create-domain-layer`) or
   creating datasources (use `create-local-datasource` or `create-remote-datasource`).
+author: yudhistiroagung
 ---
 
 ## Overview
