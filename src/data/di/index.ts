@@ -1,3 +1,5 @@
+import './profile-di';
+
 import { container } from 'tsyringe';
 
 import { AppDatabase } from '@/cores/dexie/db-dexie';

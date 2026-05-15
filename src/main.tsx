@@ -1,13 +1,15 @@
 import 'reflect-metadata';
 
+import '@/di/index';
+
 import { createRouter } from '@tanstack/react-router';
 import { StrictMode, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import './index.css';
 
-import { ComposeProvider } from '@/presentation/components/compose-provider';
 import { queryClient } from '@/cores/tanstack-query/client';
+import { ComposeProvider } from '@/presentation/components/compose-provider';
 import { getComposedProviders } from './main.handler';
 import { routeTree } from './routeTree.gen';
 

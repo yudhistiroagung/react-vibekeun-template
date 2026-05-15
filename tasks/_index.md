@@ -25,8 +25,8 @@ graph TD
 
 | ID | Title | Epic | Wave | Depends On | Estimate | Status |
 |----|-------|------|------|------------|----------|--------|
-| task-001 | Setup Dexie Database Schema and PWA Manifest | data-layer | 1 | — | S | 🔵 in_progress |
-| task-002 | Profile Management and UI Shell | profile-management | 2 | task-001 | M | ⬜ todo |
+| task-001 | Setup Dexie Database Schema and PWA Manifest | data-layer | 1 | — | S | ✅ done |
+| task-002 | Profile Management and UI Shell | profile-management | 2 | task-001 | M | 🔵 in_progress |
 | task-006 | Data Export and Import Synchronization | sync | 2 | task-001 | S | ⬜ todo |
 | task-003 | Goal Template Management | goal-management | 3 | task-002 | M | ⬜ todo |
 | task-004 | Task Generation and Rating Execution | task-execution | 4 | task-003 | L | ⬜ todo |

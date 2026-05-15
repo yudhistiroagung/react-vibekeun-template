@@ -4,9 +4,10 @@ import { Button } from '@/presentation/components/ui/button';
 import {
   Dialog,
   DialogContent,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
+  DialogFooter,
+  DialogDescription,
 } from '@/presentation/components/ui/dialog';
 import {
   DropdownMenu,
@@ -64,56 +65,52 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 flex h-16 w-full items-center border-b bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      {/* Logo Area matches sidebar width */}
-      <div className="flex h-full w-[220px] items-center border-r px-6">
-        <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Vibekeun
-        </span>
-      </div>
+    <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="container max-w-4xl mx-auto flex h-14 items-center justify-between px-4">
+        <div className="font-bold text-lg tracking-tight">Vibekeun</div>
 
-      {/* Right side actions */}
-      <div className="flex flex-1 items-center justify-end px-6">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-              <Avatar className="h-8 w-8">
-                <AvatarFallback className="bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100">
-                  {initials}
-                </AvatarFallback>
-              </Avatar>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56" align="end" forceMount>
-            <DropdownMenuLabel className="font-normal">
-              <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">
-                  {activeProfile?.name || 'No Profile Selected'}
-                </p>
-              </div>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {profiles.map((profile) => (
+        <div className="flex items-center gap-4">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                <Avatar className="h-8 w-8">
+                  <AvatarFallback className="bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100">
+                    {initials}
+                  </AvatarFallback>
+                </Avatar>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56" align="end" forceMount>
+              <DropdownMenuLabel className="font-normal">
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-medium leading-none">
+                    {activeProfile?.name || 'No Profile Selected'}
+                  </p>
+                </div>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {profiles.map((profile) => (
+                <DropdownMenuItem
+                  key={profile.id}
+                  onClick={() => setProfileId(profile.id)}
+                  className="cursor-pointer"
+                >
+                  <span className="flex-1">{profile.name}</span>
+                  {activeProfileId === profile.id && (
+                    <span className="text-xs text-zinc-500">Active</span>
+                  )}
+                </DropdownMenuItem>
+              ))}
+              <DropdownMenuSeparator />
               <DropdownMenuItem
-                key={profile.id}
-                onClick={() => setProfileId(profile.id)}
+                onClick={() => setIsAddProfileOpen(true)}
                 className="cursor-pointer"
               >
-                <span className="flex-1">{profile.name}</span>
-                {activeProfileId === profile.id && (
-                  <span className="text-xs text-zinc-500">Active</span>
-                )}
+                Add Profile...
               </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              onClick={() => setIsAddProfileOpen(true)}
-              className="cursor-pointer"
-            >
-              Add Profile...
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
 
       <Dialog open={isAddProfileOpen} onOpenChange={handleOpenChange}>
@@ -126,6 +123,9 @@ export function Header() {
             <DialogTitle>
               {noProfilesExist ? 'Welcome to Vibekeun!' : 'Add Profile'}
             </DialogTitle>
+            <DialogDescription className="sr-only">
+              {noProfilesExist ? 'Create your first profile to get started.' : 'Add a new profile to the application.'}
+            </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleAddProfile}>
             <div className="grid gap-4 py-4">
