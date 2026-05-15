@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from '@tanstack/react-router';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useGetTodos } from '@/presentation/hooks/use-get-todos';
 
@@ -22,7 +22,7 @@ export const useMenu1 = () => {
   /**
    * Derived state declaration
    */
-  const mappedCount =  useMemo(() => `This is ${count}`, [count]) ;
+  const mappedCount = useMemo(() => `This is ${count}`, [count]);
 
   /**
    * Function handlers declarations
