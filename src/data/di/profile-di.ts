@@ -10,6 +10,4 @@ container.register(
 );
 
 // Register Datasource
-container.register(ProfileLocalDatasource.TOKEN, {
-  useClass: ProfileLocalDatasource,
-});
+container.register(ProfileLocalDatasource.TOKEN, ProfileLocalDatasource);
