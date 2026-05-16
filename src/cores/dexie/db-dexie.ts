@@ -1,17 +1,10 @@
-import { Dexie, type Table } from 'dexie';
+import { Dexie } from 'dexie';
 import type { DependencyContainer } from 'tsyringe';
 import { singleton } from 'tsyringe';
-import type { GoalEntity } from '@/data/goals/models/goal-entity';
-import type { ProfileEntity } from '@/data/profiles/models/profile-entity';
-import type { TaskEntity } from '@/data/tasks/models/task-entity';
 
 @singleton()
 export class AppDatabase extends Dexie {
   static readonly NAME = 'AppDatabase';
-
-  profiles!: Table<ProfileEntity, number>;
-  goals!: Table<GoalEntity, number>;
-  tasks!: Table<TaskEntity, number>;
 
   constructor() {
     super(AppDatabase.NAME);
