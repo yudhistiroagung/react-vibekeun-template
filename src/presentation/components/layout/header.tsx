@@ -4,10 +4,10 @@ import { Button } from '@/presentation/components/ui/button';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
-  DialogDescription,
 } from '@/presentation/components/ui/dialog';
 import {
   DropdownMenu,
@@ -124,7 +124,9 @@ export function Header() {
               {noProfilesExist ? 'Welcome to Vibekeun!' : 'Add Profile'}
             </DialogTitle>
             <DialogDescription className="sr-only">
-              {noProfilesExist ? 'Create your first profile to get started.' : 'Add a new profile to the application.'}
+              {noProfilesExist
+                ? 'Create your first profile to get started.'
+                : 'Add a new profile to the application.'}
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleAddProfile}>

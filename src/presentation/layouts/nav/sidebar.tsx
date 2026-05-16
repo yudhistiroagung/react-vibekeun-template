@@ -20,11 +20,11 @@ export function Sidebar() {
           Menu 1
         </Link>
         <Link
-          to="/menu2"
+          to="/settings"
           className="flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors [&.active]:bg-blue-50 [&.active]:text-blue-600 [&.active]:font-medium"
         >
           <Settings size={20} />
-          Menu 2
+          Settings
         </Link>
       </nav>
     </div>

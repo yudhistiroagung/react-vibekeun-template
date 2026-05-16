@@ -1,5 +1,6 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+import { Toaster } from '@/presentation/components/ui/sonner';
 import { useIsMobile } from '@/presentation/hooks/use-mobile';
 import { DesktopLayout } from '@/presentation/layouts/desktop-layout';
 import { MobileLayout } from '@/presentation/layouts/mobile-layout';
@@ -23,6 +24,7 @@ function RootComponent() {
       <Layout>
         <Outlet />
       </Layout>
+      <Toaster />
       <TanStackRouterDevtools position="bottom-right" />
     </>
   );

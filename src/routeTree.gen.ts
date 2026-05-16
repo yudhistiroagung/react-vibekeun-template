@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './presentation/routes/__root'
 import { Route as IndexRouteImport } from './presentation/routes/index'
-import { Route as Menu2IndexRouteImport } from './presentation/routes/menu2/index'
+import { Route as SettingsIndexRouteImport } from './presentation/routes/settings/index'
 import { Route as Menu1IndexRouteImport } from './presentation/routes/menu1/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -18,9 +18,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Menu2IndexRoute = Menu2IndexRouteImport.update({
-  id: '/menu2/',
-  path: '/menu2/',
+const SettingsIndexRoute = SettingsIndexRouteImport.update({
+  id: '/settings/',
+  path: '/settings/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Menu1IndexRoute = Menu1IndexRouteImport.update({
@@ -32,31 +32,31 @@ const Menu1IndexRoute = Menu1IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/menu1/': typeof Menu1IndexRoute
-  '/menu2/': typeof Menu2IndexRoute
+  '/settings/': typeof SettingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/menu1': typeof Menu1IndexRoute
-  '/menu2': typeof Menu2IndexRoute
+  '/settings': typeof SettingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/menu1/': typeof Menu1IndexRoute
-  '/menu2/': typeof Menu2IndexRoute
+  '/settings/': typeof SettingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/menu1/' | '/menu2/'
+  fullPaths: '/' | '/menu1/' | '/settings/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/menu1' | '/menu2'
-  id: '__root__' | '/' | '/menu1/' | '/menu2/'
+  to: '/' | '/menu1' | '/settings'
+  id: '__root__' | '/' | '/menu1/' | '/settings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   Menu1IndexRoute: typeof Menu1IndexRoute
-  Menu2IndexRoute: typeof Menu2IndexRoute
+  SettingsIndexRoute: typeof SettingsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,11 +68,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/menu2/': {
-      id: '/menu2/'
-      path: '/menu2'
-      fullPath: '/menu2/'
-      preLoaderRoute: typeof Menu2IndexRouteImport
+    '/settings/': {
+      id: '/settings/'
+      path: '/settings'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof SettingsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/menu1/': {
@@ -88,7 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   Menu1IndexRoute: Menu1IndexRoute,
-  Menu2IndexRoute: Menu2IndexRoute,
+  SettingsIndexRoute: SettingsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
