@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback } from '@/presentation/components/ui/avatar';
 import { Button } from '@/presentation/components/ui/button';
@@ -67,7 +68,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
       <div className="container max-w-4xl mx-auto flex h-14 items-center justify-between px-4">
-        <div className="font-bold text-lg tracking-tight">Vibekeun</div>
+        <Link to="/" className="font-bold text-lg tracking-tight">
+          Vibekeun
+        </Link>
 
         <div className="flex items-center gap-4">
           <DropdownMenu>

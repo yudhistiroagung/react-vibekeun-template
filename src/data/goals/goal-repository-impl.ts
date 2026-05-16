@@ -1,24 +1,42 @@
 import { inject, singleton } from 'tsyringe';
-import { AppDatabase } from '@/cores/dexie/db-dexie';
 import type { GoalRepository } from '@/domain/goals/goal-repository';
 import type { Goal } from '@/domain/goals/models/goal';
+import type { GoalDataSource } from './datasources/goal-datasource';
+import { GoalLocalDatasource } from './datasources/local/goal-local-datasource';
 import { goalDomainToEntity, goalEntityToDomain } from './mapper/goal-mapper';
 
 @singleton()
 export class GoalRepositoryImpl implements GoalRepository {
-  constructor(@inject(AppDatabase) private readonly db: AppDatabase) {}
+  constructor(
+    @inject(GoalLocalDatasource.TOKEN) private readonly local: GoalDataSource,
+  ) {}
 
   async getAll(): Promise<Goal[]> {
-    const goals = await this.db.goals.toArray();
-    return goals.map(goalEntityToDomain);
+    const entities = await this.local.getGoals();
+    return entities.map(goalEntityToDomain);
+  }
+
+  async getByProfileId(profileId: number): Promise<Goal[]> {
+    const entities = await this.local.getGoalsByProfileId(profileId);
+    return entities.map(goalEntityToDomain);
+  }
+
+  async create(goal: Omit<Goal, 'id' | 'createdAt'>): Promise<Goal> {
+    const now = Date.now();
+    const entity = {
+      ...goal,
+      createdAt: now,
+    };
+    const id = await this.local.addGoal(entity);
+    return goalEntityToDomain({ ...entity, id });
   }
 
   async bulkAdd(goals: Goal[]): Promise<void> {
     const entities = goals.map(goalDomainToEntity);
-    await this.db.goals.bulkAdd(entities);
+    await this.local.bulkAddGoals(entities);
   }
 
   async clear(): Promise<void> {
-    await this.db.goals.clear();
+    await this.local.clearGoals();
   }
 }

@@ -56,6 +56,7 @@ export class ProductRepositoryImpl implements ProductRepository {
 
 > Inject only the datasources this repository actually uses.
 > Not all repositories need both local and remote.
+> never inject AppDatabase object to repo implementation class.
 
 **Step 2 — Register and resolve in the DI container**
 Add the binding in `src/di/index.ts`:

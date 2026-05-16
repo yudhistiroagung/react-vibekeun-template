@@ -11,6 +11,7 @@ export const goalEntityToDomain = (entity: GoalEntity): Goal => {
     profileId: entity.profileId,
     title: entity.title,
     description: entity.description,
+    frequency: entity.frequency as Goal['frequency'],
     createdAt: entity.createdAt,
   };
 };
@@ -21,6 +22,7 @@ export const goalDomainToEntity = (domain: Goal): GoalEntity => {
     profileId: domain.profileId,
     title: domain.title,
     description: domain.description,
+    frequency: domain.frequency,
     createdAt: domain.createdAt,
   };
 };

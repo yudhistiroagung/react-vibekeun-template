@@ -1,4 +1,6 @@
 import './profile-di';
+import './goal-di';
+import './task-di';
 
 import { container } from 'tsyringe';
 

@@ -5,6 +5,7 @@ export const GoalEntity = z.object({
   profileId: z.number(),
   title: z.string(),
   description: z.string().optional(),
+  frequency: z.string(),
   createdAt: z.number(),
 });
 
