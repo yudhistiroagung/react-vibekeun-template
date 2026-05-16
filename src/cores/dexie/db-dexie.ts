@@ -1,38 +1,17 @@
 import { Dexie, type Table } from 'dexie';
 import type { DependencyContainer } from 'tsyringe';
 import { singleton } from 'tsyringe';
-
-export interface ProfileDbModel {
-  id?: number;
-  name: string;
-  createdAt: number;
-}
-
-export interface GoalDbModel {
-  id?: number;
-  profileId: number;
-  title: string;
-  description?: string;
-  createdAt: number;
-}
-
-export interface TaskDbModel {
-  id?: number;
-  profileId: number;
-  goalId: number;
-  date: string;
-  status: 'completed' | 'pending';
-  rating?: number;
-  createdAt: number;
-}
+import type { GoalEntity } from '@/data/goals/models/goal-entity';
+import type { ProfileEntity } from '@/data/profiles/models/profile-entity';
+import type { TaskEntity } from '@/data/tasks/models/task-entity';
 
 @singleton()
 export class AppDatabase extends Dexie {
   static readonly NAME = 'AppDatabase';
 
-  profiles!: Table<ProfileDbModel, number>;
-  goals!: Table<GoalDbModel, number>;
-  tasks!: Table<TaskDbModel, number>;
+  profiles!: Table<ProfileEntity, number>;
+  goals!: Table<GoalEntity, number>;
+  tasks!: Table<TaskEntity, number>;
 
   constructor() {
     super(AppDatabase.NAME);

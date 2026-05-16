@@ -34,4 +34,12 @@ export class ProfileLocalDatasource implements ProfileDataSource {
   async deleteProfile(id: number): Promise<void> {
     await this.profiles.delete(id);
   }
+
+  async bulkAddProfiles(profiles: ProfileEntity[]): Promise<void> {
+    await this.profiles.bulkAdd(profiles);
+  }
+
+  async clearProfiles(): Promise<void> {
+    await this.profiles.clear();
+  }
 }

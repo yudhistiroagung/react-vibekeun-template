@@ -6,4 +6,6 @@ export interface ProfileRepository {
   create(profile: Omit<Profile, 'id' | 'createdAt'>): Promise<Profile>;
   update(id: number, profile: Partial<Profile>): Promise<Profile>;
   delete(id: number): Promise<void>;
+  bulkAdd(profiles: Profile[]): Promise<void>;
+  clear(): Promise<void>;
 }

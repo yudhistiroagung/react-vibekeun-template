@@ -6,4 +6,6 @@ export interface ProfileDataSource {
   addProfile(profile: ProfileEntity): Promise<number>;
   updateProfile(id: number, profile: Partial<ProfileEntity>): Promise<void>;
   deleteProfile(id: number): Promise<void>;
+  bulkAddProfiles(profiles: ProfileEntity[]): Promise<void>;
+  clearProfiles(): Promise<void>;
 }

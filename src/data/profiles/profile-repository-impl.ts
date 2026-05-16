@@ -3,7 +3,10 @@ import type { Profile } from '@/domain/profiles/models/profile';
 import type { ProfileRepository } from '@/domain/profiles/profile-repository';
 import { ProfileLocalDatasource } from './datasources/local/profile-local-datasource';
 import type { ProfileDataSource } from './datasources/profile-datasource';
-import { profileEntityToDomain } from './mapper/profile-mapper';
+import {
+  profileDomainToEntity,
+  profileEntityToDomain,
+} from './mapper/profile-mapper';
 
 @singleton()
 export class ProfileRepositoryImpl implements ProfileRepository {
@@ -46,5 +49,14 @@ export class ProfileRepositoryImpl implements ProfileRepository {
 
   async delete(id: number): Promise<void> {
     await this.local.deleteProfile(id);
+  }
+
+  async bulkAdd(profiles: Profile[]): Promise<void> {
+    const entities = profiles.map(profileDomainToEntity);
+    await this.local.bulkAddProfiles(entities);
+  }
+
+  async clear(): Promise<void> {
+    await this.local.clearProfiles();
   }
 }
