@@ -1,7 +1,7 @@
 ---
 name: create-repository-implementation
 description: >
-  Use this skill when creating a NEW repository implementation class in the data layer.
+  Use this skill when creating a NEW repository implementation class in the data layer and its unit test file.
   This wires the domain repository interface to its actual datasource(s) using dependency injection.
   Triggers: "implement repository", "create repository impl", "wire datasource to repository".
   Do NOT use for defining the repository interface (use `create-domain-layer`) or
@@ -11,12 +11,13 @@ author: yudhistiroagung
 
 ## Overview
 Creates the concrete class that implements the domain repository interface,
-injects datasource(s), and registers itself in the DI container.
+injects datasource(s), create unit test file, and then registers itself in the DI container.
 
 The file produced:
 ```
 src/data/{data-name}/
 └── {data-name}-repository-impl.ts
+└── {data-name}-repository-impl.test.ts
 ```
 
 ## Steps
@@ -54,9 +55,11 @@ export class ProductRepositoryImpl implements ProductRepository {
 }
 ```
 
+**Step 2 — Create the unit test file**
+Create `src/data/{data-name}/{data-name}-repository-impl.test.ts`. and implement the test cases.
+
 > Inject only the datasources this repository actually uses.
 > Not all repositories need both local and remote.
-> never inject AppDatabase object to repo implementation class.
 
 **Step 2 — Register and resolve in the DI container**
 Add the binding in `src/di/index.ts`:

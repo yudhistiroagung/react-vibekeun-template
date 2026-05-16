@@ -1,99 +1,149 @@
 ---
-name: create-remote-datasource
+name: create-local-datasource
 description: >
-  Use this skill when creating a NEW remote datasource in the data layer.
-  This sets up an Axios-backed remote datasource: datasource interface,
-  remote datasource class, and DI container registration.
-  Triggers: "create remote datasource", "add API datasource", "scaffold remote data", "new API source".
-  Do NOT use for local datasources (use `create-local-datasource`) or
+  Use this skill when creating a NEW local datasource in the data layer.
+  This sets up a Dexie-backed local datasource: datasource interface, DB table config,
+  local datasource class, unit test file, and all DI container registrations.
+  Triggers: "create local datasource", "add local DB source", "scaffold local data", "new dexie table".
+  Do NOT use for remote datasources (use `create-remote-datasource`) or
   repository implementation (use `create-repository-implementation`).
 author: yudhistiroagung
 ---
 
 ## Overview
-Creates a remote datasource that handles API calls via Axios.
+Creates a complete local datasource backed by Dexie (IndexedDB).
 
 The structure produced:
 ```
 src/data/{data-name}/datasources/
-├── {data-name}-datasource.ts             # shared datasource interface (create if not exists)
-└── remote/
-    └── {data-name}-remote-datasource.ts  # implementation class
+├── {data-name}-datasource.ts                 # shared datasource interface
+└── local/
+    ├── db/
+    │   └── index.ts                          # Dexie table config + DI token
+    ├── {data-name}-local-datasource.ts       # implementation class
+    └── {data-name}-local-datasource.test.ts  # test file
 ```
 
 ---
 
 ## Step 1 — Create the datasource interface
 Create `src/data/{data-name}/datasources/{data-name}-datasource.ts` if it does not exist yet.
-This is the shared contract used by both local and remote implementations.
+This is the shared contract used by both local and remote datasource implementations.
 
 ```ts
 // src/data/todos/datasources/todo-datasource.ts
 export interface TodoDataSource<T> {
   getTodos(): Promise<T[]>;
-  createTodo(item: T): Promise<T>;
+  setTodos(items: T[]): Promise<void>;
 }
 ```
 
 > Only add methods this feature actually needs.
-> If this file already exists (e.g. local datasource was created first), skip this step.
 
 ---
 
-## Step 2 — Create the remote datasource class
-Create `src/data/{data-name}/datasources/remote/{data-name}-remote-datasource.ts`.
+## Step 2 — Create the Dexie table config
+Create `src/data/{data-name}/datasources/local/db/index.ts`.
+
+This file defines the table name, schema token, and TypeScript table type used by Dexie.
 
 ```ts
-// src/data/todos/datasources/remote/todo-remote-datasource.ts
-import { inject, singleton } from 'tsyringe';
-import type { AxiosInstance } from 'axios';
+// src/data/todos/datasources/local/db/index.ts
+import type { Table } from 'dexie';
+import type { TodoEntity } from '../../../models/todo-entity';
 
-import { AxiosCore } from '@/cores/axios';
+export type TodoTable = Table<TodoEntity>;
+
+export default {
+  TOKEN: 'TodoLocalDBToken',   // used to inject the Dexie table
+  TABLE_NAME: 'todos',         // must match AppDatabase table name (see Step 5)
+};
+```
+
+---
+
+## Step 3 — Create the local datasource class
+Create `src/data/{data-name}/datasources/local/{data-name}-local-datasource.ts`.
+
+```ts
+// src/data/todos/datasources/local/todo-local-datasource.ts
+import { inject, singleton } from 'tsyringe';
+
+import type { TodoEntity } from '../../models/todo-entity';
 import type { TodoDataSource } from '../todo-datasource';
-import type { TodoDto } from '../../models/todo-dto';
+import TodoLocalDb, { type TodoTable } from './db';
 
 @singleton()
-export class TodoRemoteDatasource implements TodoDataSource<TodoDto> {
-  static readonly TOKEN = 'TodoRemoteDatasource';
+export class TodoLocalDatasource implements TodoDataSource<TodoEntity> {
+  static readonly TOKEN = 'TodoLocalDatasource';
 
   constructor(
-    @inject(AxiosCore.TOKEN) private readonly http: AxiosInstance
+    @inject(TodoLocalDb.TOKEN) private readonly todos: TodoTable
   ) {}
 
-  async getTodos(): Promise<TodoDto[]> {
-    const response = await this.http.get<TodoDto[]>('/todos');
-    return response.data;
+  async getTodos(): Promise<TodoEntity[]> {
+    return this.todos.toArray();
   }
 
-  async createTodo(item: TodoDto): Promise<TodoDto> {
-    const response = await this.http.post<TodoDto>('/todos', item);
-    return response.data;
+  async setTodos(todos: TodoEntity[]): Promise<void> {
+    return this.todos.bulkAdd(todos);
   }
 }
 ```
 
-> The remote datasource works with DTOs only — never domain models.
-> Mapping from DTO to domain model is the repository's responsibility.
+## Step 4 — Create the unit test file
+Create `src/data/{data-name}/datasources/local/{data-name}-local-datasource.test.ts`. and implement the test cases.
 
 ---
 
-## Step 3 — Register in the DI container
-Add the registration to `src/data/di/index.ts`:
+## Step 5 — Register in the DI container
+Add both registrations to `src/data/di/index.ts`.
 
+**5a — Register the Dexie table:**
 ```ts
-// src/data/di/index.ts
 import { container } from 'tsyringe';
-import { TodoRemoteDatasource } from '../todos/datasources/remote/todo-remote-datasource';
+import { AppDatabase } from '@/cores/dexie/db-dexie';
+import TodoLocalDb from '../todos/datasources/local/db';
 
-container.register(TodoRemoteDatasource.TOKEN, TodoRemoteDatasource);
+container.register(
+  ...AppDatabase.provideTable(TodoLocalDb.TOKEN, TodoLocalDb.TABLE_NAME),
+);
 ```
 
-> Axios itself is registered once globally in `src/cores/axios` — do not re-register it here.
+**5b — Register the datasource implementation:**
+```ts
+import { TodoLocalDatasource } from '../todos/datasources/local/todo-local-datasource';
+
+container.register(TodoLocalDatasource.TOKEN, TodoLocalDatasource);
+```
+
+> Both registrations go in the same `src/data/di/index.ts` file.
+
+---
+
+## Step 5 — Register the table in AppDatabase
+Open `src/cores/dexie/db-dexie.ts` and add the new table:
+
+1. Add the table name and indexed fields inside `initiate()`
+
+```ts
+// example — add alongside existing tables
+class AppDatabase extends Dexie {
+
+  initiate() {
+    this.version(1).stores({
+      todos: '++id, name',   // 1. table name + indexed fields
+    });
+  }
+}
+```
+
+> `TABLE_NAME` in `db/index.ts` (Step 2) must exactly match the key used here.
+> ONLY add new table name + indexed fields inside `initiate()`. Do NOT declare any table properties on the `AppDatabase` class since we provide them in the DI container.
 
 ---
 
 ## What This Skill Does NOT Cover
-- Local datasource (Dexie/IndexedDB) → use `create-local-datasource`
+- Remote datasource → use `create-remote-datasource`
 - Repository implementation that uses this datasource → use `create-repository-implementation`
-- DTO-to-domain mapping → see `data-layer-scaffold` Step 5
 - Domain model / repository interface → use `create-domain-layer`
