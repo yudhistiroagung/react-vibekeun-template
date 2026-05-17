@@ -18,28 +18,28 @@ describe('TaskRepositoryImpl', () => {
 
   it('should get all tasks and map to domain models', async () => {
     const mockEntities: TaskEntity[] = [
-      { id: 1, profileId: 1, goalId: 1, date: 123456789, status: 'pending', rating: 0, createdAt: 123456789 },
+      { id: 1, profileId: 1, goalId: 1, date: '2026-05-16', status: 'pending', rating: 0, createdAt: 123456789 },
     ];
     mockLocalDatasource.getTasks.mockResolvedValue(mockEntities);
 
     const result = await repository.getAll();
 
     expect(result).toEqual([
-      { id: 1, profileId: 1, goalId: 1, date: 123456789, status: 'pending', rating: 0, createdAt: 123456789 },
+      { id: 1, profileId: 1, goalId: 1, date: '2026-05-16', status: 'pending', rating: 0, createdAt: 123456789 },
     ]);
     expect(mockLocalDatasource.getTasks).toHaveBeenCalledTimes(1);
   });
 
   it('should bulk add tasks by mapping domain to entity models', async () => {
-    const mockTasks: Task[] = [
-      { id: 1, profileId: 1, goalId: 1, date: 123456789, status: 'pending', rating: 0, createdAt: 123456789 },
+    const domainTasks: Task[] = [
+      { id: 1, profileId: 1, goalId: 1, date: '2026-05-16', status: 'pending', rating: 0, createdAt: 123456789 },
     ];
     mockLocalDatasource.bulkAddTasks.mockResolvedValue(undefined);
 
-    await repository.bulkAdd(mockTasks);
+    await repository.bulkAdd(domainTasks);
 
     expect(mockLocalDatasource.bulkAddTasks).toHaveBeenCalledWith([
-      { id: 1, profileId: 1, goalId: 1, date: 123456789, status: 'pending', rating: 0, createdAt: 123456789 },
+      { id: 1, profileId: 1, goalId: 1, date: '2026-05-16', status: 'pending', rating: 0, createdAt: 123456789 },
     ]);
     expect(mockLocalDatasource.bulkAddTasks).toHaveBeenCalledTimes(1);
   });

@@ -17,7 +17,7 @@ describe('TaskLocalDatasource', () => {
 
   it('should return all tasks', async () => {
     const mockTasks: TaskEntity[] = [
-      { id: 1, profileId: 1, goalId: 1, date: 123456789, status: 'pending', rating: 0, createdAt: 123456789 },
+      { id: 1, profileId: 1, goalId: 1, date: '2026-05-16', status: 'pending', rating: 0, createdAt: 123456789 },
     ];
     mockTable.toArray.mockResolvedValue(mockTasks);
 
@@ -29,7 +29,7 @@ describe('TaskLocalDatasource', () => {
 
   it('should bulk add tasks', async () => {
     const mockTasks: TaskEntity[] = [
-      { id: 1, profileId: 1, goalId: 1, date: 123456789, status: 'pending', rating: 0, createdAt: 123456789 },
+      { id: 1, profileId: 1, goalId: 1, date: '2026-05-16', status: 'pending', rating: 0, createdAt: 123456789 },
     ];
     mockTable.bulkAdd.mockResolvedValue(undefined);
 

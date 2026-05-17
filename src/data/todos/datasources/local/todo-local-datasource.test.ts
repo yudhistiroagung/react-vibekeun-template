@@ -16,7 +16,7 @@ describe('TodoLocalDatasource', () => {
 
   it('should get all todos', async () => {
     const mockTodos: TodoEntity[] = [
-      { id: 1, name: 'Todo 1', description: 'Desc', status: 'pending', created_at: 123, updated_at: 123 },
+      { id: '1', name: 'Todo 1', description: 'Desc', status: false, created_at: new Date(123), updated_at: new Date(123) },
     ];
     mockTable.toArray.mockResolvedValue(mockTodos);
 
@@ -28,7 +28,7 @@ describe('TodoLocalDatasource', () => {
 
   it('should set todos using bulkAdd', async () => {
     const mockTodos: TodoEntity[] = [
-      { id: 1, name: 'Todo 1', description: 'Desc', status: 'pending', created_at: 123, updated_at: 123 },
+      { id: '1', name: 'Todo 1', description: 'Desc', status: false, created_at: new Date(123), updated_at: new Date(123) },
     ];
     mockTable.bulkAdd.mockResolvedValue(undefined);
 

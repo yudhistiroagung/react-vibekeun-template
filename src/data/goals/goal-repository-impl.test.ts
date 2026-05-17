@@ -28,28 +28,28 @@ describe('GoalRepositoryImpl', () => {
 
   it('should get all goals and map to domain models', async () => {
     const mockEntities: GoalEntity[] = [
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'Daily', profileId: 1, createdAt: 123 },
     ];
     mockLocalDatasource.getGoals.mockResolvedValue(mockEntities);
 
     const result = await repository.getAll();
 
     expect(result).toEqual([
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'Daily', profileId: 1, createdAt: 123 },
     ]);
     expect(mockLocalDatasource.getGoals).toHaveBeenCalledTimes(1);
   });
 
   it('should get goals by profile id', async () => {
     const mockEntities: GoalEntity[] = [
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'Daily', profileId: 1, createdAt: 123 },
     ];
     mockLocalDatasource.getGoalsByProfileId.mockResolvedValue(mockEntities);
 
     const result = await repository.getByProfileId(1);
 
     expect(result).toEqual([
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'Daily', profileId: 1, createdAt: 123 },
     ]);
     expect(mockLocalDatasource.getGoalsByProfileId).toHaveBeenCalledWith(1);
   });
@@ -58,7 +58,7 @@ describe('GoalRepositoryImpl', () => {
     const newGoal: Omit<Goal, 'id' | 'createdAt'> = {
       title: 'Goal 1',
       description: 'Desc',
-      frequency: 'daily',
+      frequency: 'Daily',
       profileId: 1,
     };
     
@@ -79,14 +79,14 @@ describe('GoalRepositoryImpl', () => {
 
   it('should bulk add goals', async () => {
     const mockGoals: Goal[] = [
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'Daily', profileId: 1, createdAt: 123 },
     ];
     mockLocalDatasource.bulkAddGoals.mockResolvedValue(undefined);
 
     await repository.bulkAdd(mockGoals);
 
     expect(mockLocalDatasource.bulkAddGoals).toHaveBeenCalledWith([
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'Daily', profileId: 1, createdAt: 123 },
     ]);
   });
 

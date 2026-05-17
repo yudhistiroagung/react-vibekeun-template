@@ -21,7 +21,7 @@ describe('TodoRepositoryImpl', () => {
 
   it('should get todos from local datasource if available', async () => {
     const mockLocalEntities: TodoEntity[] = [
-      { id: 1, name: 'Todo 1', description: 'Desc', status: 'pending', created_at: 123, updated_at: 123 },
+      { id: '1', name: 'Todo 1', description: 'Desc', status: false, created_at: new Date(123), updated_at: new Date(123) },
     ];
     mockLocalDatasource.getTodos.mockResolvedValue(mockLocalEntities);
 
@@ -37,7 +37,7 @@ describe('TodoRepositoryImpl', () => {
   it('should get todos from remote and save to local if local is empty', async () => {
     mockLocalDatasource.getTodos.mockResolvedValue([]);
     const mockRemoteDtos: TodoDto[] = [
-      { id: 1, name: 'Remote Todo 1', description: 'Desc', status: 'pending', created_at: 123, updated_at: 123 },
+      { id: '1', name: 'Remote Todo 1', description: 'Desc', status: false, created_at: new Date(123), updated_at: new Date(123) },
     ];
     mockRemoteDatasource.getTodos.mockResolvedValue(mockRemoteDtos);
     mockLocalDatasource.setTodos.mockResolvedValue(undefined);

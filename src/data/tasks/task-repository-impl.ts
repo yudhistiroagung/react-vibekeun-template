@@ -16,6 +16,21 @@ export class TaskRepositoryImpl implements TaskRepository {
     return entities.map(taskEntityToDomain);
   }
 
+  async getByProfileIdAndDate(profileId: number, date: string): Promise<Task[]> {
+    const entities = await this.local.getTasksByProfileAndDate(profileId, date);
+    return entities.map(taskEntityToDomain);
+  }
+
+  async create(task: Omit<Task, 'id' | 'createdAt'>): Promise<Task> {
+    const entity = await this.local.createTask({ ...task, createdAt: Date.now() });
+    return taskEntityToDomain(entity);
+  }
+
+  async update(id: number, task: Partial<Task>): Promise<Task> {
+    const entity = await this.local.updateTask(id, task);
+    return taskEntityToDomain(entity);
+  }
+
   async bulkAdd(tasks: Task[]): Promise<void> {
     const entities = tasks.map(taskDomainToEntity);
     await this.local.bulkAddTasks(entities);
