@@ -37,6 +37,7 @@ The most stable layer. Contains pure business logic with **no framework dependen
 
 | Part | Purpose |
 |---|---|
+| `usecases/` | Business logic for business operation (e.g. `GetProductById`, `GetProducts`) |
 | `models/` | Plain business models (e.g. `Product`, `User`) |
 | `{name}-repository.ts` | Repository **interface** only — defines what data is needed, not how to get it |
 
@@ -87,7 +88,8 @@ src/
 │   └── index.ts                    # DI container registrations (tsyringe)
 ├── domain/
 │   └── {domain-name}/
-│       ├── models/                 # Business models (Zod schema + inferred type)
+│       ├── usecases/                 # Business logic for business operation (e.g. `GetProductById`, `GetProducts`)
+││       ├── models/                 # Business models (Zod schema + inferred type)
 │       └── {name}-repository.ts   # Repository interface (contract only, no implementation)
 ├── data/
 │   └── {data-name}/
@@ -121,7 +123,7 @@ src/
 |---|---|
 | Presentation | Domain, Core |
 | Data | Domain, Core |
-| Domain | Nothing (no imports from other layers) |
+| Domain | Data, Core |
 | Core | Nothing |
 | DI | Everything (this is its job) |
 
