@@ -54,6 +54,10 @@ export interface ProductRepository {
   update(product: Product): Promise<Product>;
   delete(id: string): Promise<void>;
 }
+
+export namespace ProductRepository {
+  export const TOKEN = 'ProductRepository';
+}
 ```
 
 > Only include methods that this domain actually needs — don't copy the full CRUD list blindly.

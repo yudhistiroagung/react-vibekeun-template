@@ -22,6 +22,14 @@ export class GoalLocalDatasource implements GoalDataSource {
     return this.goals.add(goal);
   }
 
+  async updateGoal(id: number, goal: Partial<GoalEntity>): Promise<number> {
+    return this.goals.update(id, goal);
+  }
+
+  async deleteGoal(id: number): Promise<void> {
+    await this.goals.delete(id);
+  }
+
   async bulkAddGoals(goals: GoalEntity[]): Promise<void> {
     await this.goals.bulkAdd(goals);
   }

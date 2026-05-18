@@ -1,12 +1,14 @@
 import { inject, singleton } from 'tsyringe';
 import type { Task } from '@/domain/tasks/models/task';
-import type { TaskRepository } from '@/domain/tasks/task-repository';
+import { TaskRepository } from '@/domain/tasks/task-repository';
 import { TaskLocalDatasource } from './datasources/local/task-local-datasource';
 import type { TaskDataSource } from './datasources/task-datasource';
 import { taskDomainToEntity, taskEntityToDomain } from './mapper/task-mapper';
 
 @singleton()
 export class TaskRepositoryImpl implements TaskRepository {
+  static readonly TOKEN = TaskRepository.TOKEN;
+
   constructor(
     @inject(TaskLocalDatasource.TOKEN) private readonly local: TaskDataSource,
   ) {}

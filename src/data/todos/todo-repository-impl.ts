@@ -1,6 +1,6 @@
 import { inject, singleton } from 'tsyringe';
 
-import type { TodoRepository } from '@/domain/todos/todo-repository';
+import { TodoRepository } from '@/domain/todos/todo-repository';
 
 import { TodoLocalDatasource } from './datasources/local/todo-local-datasource';
 import { TodoRemoteDatasource } from './datasources/remote/todo-remote-datasource';
@@ -14,7 +14,7 @@ import type { TodoDto, TodoEntity } from './models';
 
 @singleton()
 export class TodoRepositoryImpl implements TodoRepository {
-  static readonly TOKEN = 'TodoRepositoryImpl';
+  static readonly TOKEN = TodoRepository.TOKEN;
   
   constructor(
     @inject(TodoLocalDatasource.TOKEN)

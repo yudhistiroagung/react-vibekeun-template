@@ -1,6 +1,6 @@
 import { inject, singleton } from 'tsyringe';
 import type { Profile } from '@/domain/profiles/models/profile';
-import type { ProfileRepository } from '@/domain/profiles/profile-repository';
+import { ProfileRepository } from '@/domain/profiles/profile-repository';
 import { ProfileLocalDatasource } from './datasources/local/profile-local-datasource';
 import type { ProfileDataSource } from './datasources/profile-datasource';
 import {
@@ -10,6 +10,8 @@ import {
 
 @singleton()
 export class ProfileRepositoryImpl implements ProfileRepository {
+  static readonly TOKEN = ProfileRepository.TOKEN;
+
   constructor(
     @inject(ProfileLocalDatasource.TOKEN)
     private readonly local: ProfileDataSource,

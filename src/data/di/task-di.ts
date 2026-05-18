@@ -4,7 +4,6 @@ import { AppDatabase } from '@/cores/dexie/db-dexie';
 import TaskLocalDb from '../tasks/datasources/local/db';
 import { TaskLocalDatasource } from '../tasks/datasources/local/task-local-datasource';
 import { TaskRepositoryImpl } from '../tasks/task-repository-impl';
-import { TaskRepository } from '@/domain/tasks/task-repository';
 
 // Register Dexie table
 container.register(
@@ -15,5 +14,5 @@ container.register(
 container.register(TaskLocalDatasource.TOKEN, TaskLocalDatasource);
 
 // Register Repository
-container.register(TaskRepository.TOKEN, TaskRepositoryImpl);
+container.register(TaskRepositoryImpl.TOKEN, TaskRepositoryImpl);
 
