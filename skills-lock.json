@@ -11,13 +11,19 @@
       "source": "yudhistiroagung/my-defined-skills",
       "sourceType": "github",
       "skillPath": "skills/create-domain-layer/SKILL.md",
-      "computedHash": "a282b35eb228c43e5e041d3a56151fbbafef5848b7ceec45459b1b0a0e5a20e3"
+      "computedHash": "73e095d9aa0a4ca5849b0d6ee8891f6faa59810912e704112284737fad99caac"
+    },
+    "create-domain-usecase": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-domain-usecase/SKILL.md",
+      "computedHash": "3b20cb1df53e2b8dcc22aec3ffbde2adbbf6e897403be26fde59447100d48a52"
     },
     "create-local-datasource": {
       "source": "yudhistiroagung/my-defined-skills",
       "sourceType": "github",
       "skillPath": "skills/create-local-datasource/SKILL.md",
-      "computedHash": "ffa6be372969408214bbf45ec69f182fd32b1b0c8155de1ec46abc6b99d259e6"
+      "computedHash": "5e643ca8df6ba95f736fc4fba27be8512cc4ee742b4ee4f18a7327859e9a9d3a"
     },
     "create-react-presenter-hook": {
       "source": "yudhistiroagung/my-defined-skills",
@@ -35,13 +41,13 @@
       "source": "yudhistiroagung/my-defined-skills",
       "sourceType": "github",
       "skillPath": "skills/create-repository-implementation/SKILL.md",
-      "computedHash": "19fdea53e21e4eca3fae7e1f14eddd0fdc56276a7f75e26882bada12900b019b"
+      "computedHash": "5bfbb2fa38e8b2c462952280da372f89bbb720129ee2281177715a458e0bc6aa"
     },
     "data-layer-scaffold": {
       "source": "yudhistiroagung/my-defined-skills",
       "sourceType": "github",
       "skillPath": "skills/data-layer-scaffold/SKILL.md",
-      "computedHash": "d1577389db1ac2e97c77875dbf8388aafe1cc0a230e71206b12a1546159ed5ee"
+      "computedHash": "4e2093f75a8805f88f892ed386e34761604bfbe9b9ba8b06e4ccbbf6d8414924"
     },
     "implement": {
       "source": "yudhistiroagung/my-defined-skills",
@@ -66,6 +72,12 @@
       "sourceType": "github",
       "skillPath": "skills/split-prd/SKILL.md",
       "computedHash": "71b86ed546bae5ba63aa089ef1b66b4c1a7959b95df4668f5b28ff7b776469c1"
+    },
+    "to-prd": {
+      "source": "yudhistiroagung/my-defined-skills",
+      "sourceType": "github",
+      "skillPath": "skills/to-prd/SKILL.md",
+      "computedHash": "464e5ae8ed121f7d827f5bc4ef5c377d20925bbf0cf1a6360c1348a774217fd5"
     }
   }
 }

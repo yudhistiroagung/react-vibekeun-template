@@ -1,19 +1,20 @@
 import { inject, singleton } from 'tsyringe';
 
 import type { BaseUsecase } from '@/cores/usecases/base-usecase';
-import { TodoRepositoryImpl } from '@/data/todos/todo-repository-impl';
 
 import type { Todo } from '../models';
-import type { TodoRepository } from '../todo-repository';
+import { TodoRepository } from '../todo-repository';
 
-type Input = undefined;
+type Input = void;
 type Output = Todo[];
 
 @singleton()
 export class GetTodosUsecase implements BaseUsecase<Input, Output> {
-    constructor(@inject(TodoRepositoryImpl.TOKEN) private readonly todoRespository: TodoRepository) { }
+    static readonly TOKEN = 'GetTodosUsecase';
+
+    constructor(@inject(TodoRepository.TOKEN) private readonly todoRepository: TodoRepository) { }
     
     async run(): Promise<Todo[]> {
-        return this.todoRespository.getTodos();
+        return this.todoRepository.getTodos();
     }
 }

@@ -10,7 +10,7 @@ type TodoQueryOption = QueryOptions<Todo[]>;
 export const useGetTodos = (options: TodoQueryOption = {}) => {
   const queryMethods = useQuery({
     queryKey: ['TODOS'],
-    queryFn: () => di.repositories.todoRepository.getTodos(),
+    queryFn: () => di.usecases.getTodosUsecase.run(),
     ...options,
   });
 

@@ -5,12 +5,8 @@ export const useRateTask = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({ taskId, rating }: { taskId: number; rating: number }) => {
-      const taskRepo = di.repositories.taskRepository;
-      return taskRepo.update(taskId, {
-        rating,
-        status: 'completed',
-      });
+    mutationFn: async ({ taskId, rating, comments }: { taskId: number; rating: number; comments: string }) => {
+      return di.usecases.updateTaskUsecase.run({ id: taskId, task: { rating, comments, status: 'completed' } });
     },
     onSuccess: () => {
       // Invalidate the tasks query to trigger a refetch

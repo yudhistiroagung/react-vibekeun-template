@@ -17,11 +17,12 @@ export const useGetTodayTasks = () => {
       const today = new Date();
       const dateStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
       
-      const taskRepo = di.repositories.taskRepository;
-      const goalRepo = di.repositories.goalRepository;
+      const getTasksUsecase = di.usecases.getTasksByProfileIdAndDateUsecase;
+      const getGoalsUsecase = di.usecases.getGoalsByProfileIdUsecase;
+      const createTaskUsecase = di.usecases.createTaskUsecase;
 
-      let tasks = await taskRepo.getByProfileIdAndDate(activeProfileId, dateStr);
-      const goals = await goalRepo.getByProfileId(activeProfileId);
+      let tasks = await getTasksUsecase.run({ profileId: activeProfileId, date: dateStr });
+      const goals = await getGoalsUsecase.run({ profileId: activeProfileId });
 
       // If no tasks exist for today, generate them based on goals
       if (tasks.length === 0) {
@@ -29,11 +30,13 @@ export const useGetTodayTasks = () => {
         for (const goal of goals) {
           // Simplification for MVP: generating for Daily and One-time
           if (goal.frequency === 'Daily' || goal.frequency === 'One-time') {
-            const task = await taskRepo.create({
-              profileId: activeProfileId,
-              goalId: goal.id,
-              date: dateStr,
-              status: 'pending',
+            const task = await createTaskUsecase.run({
+              task: {
+                profileId: activeProfileId,
+                goalId: goal.id,
+                date: dateStr,
+                status: 'pending',
+              }
             });
             newTasks.push(task);
           }

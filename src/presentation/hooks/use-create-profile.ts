@@ -7,7 +7,7 @@ export function useCreateProfile() {
 
   return useMutation({
     mutationFn: (profile: Omit<Profile, 'id' | 'createdAt'>) =>
-      di.repositories.profileRepository.create(profile),
+      di.usecases.createProfileUsecase.run({ profile }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['profiles'] });
     },

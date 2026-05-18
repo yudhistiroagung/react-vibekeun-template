@@ -11,7 +11,7 @@ export const useGetGoals = () => {
       if (!activeProfileId) {
         return [];
       }
-      return di.repositories.goalRepository.getByProfileId(activeProfileId);
+      return di.usecases.getGoalsByProfileIdUsecase.run({ profileId: activeProfileId });
     },
     enabled: !!activeProfileId,
   });

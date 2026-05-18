@@ -9,3 +9,7 @@ export interface ProfileRepository {
   bulkAdd(profiles: Profile[]): Promise<void>;
   clear(): Promise<void>;
 }
+
+export namespace ProfileRepository {
+  export const TOKEN = 'ProfileRepository';
+}

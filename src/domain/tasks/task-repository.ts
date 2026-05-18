@@ -8,3 +8,7 @@ export interface TaskRepository {
   bulkAdd(tasks: Task[]): Promise<void>;
   clear(): Promise<void>;
 }
+
+export namespace TaskRepository {
+  export const TOKEN = 'TaskRepository';
+}

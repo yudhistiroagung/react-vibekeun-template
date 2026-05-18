@@ -12,9 +12,11 @@ export const useCreateGoal = () => {
       if (!activeProfileId) {
         throw new Error('No active profile');
       }
-      return di.repositories.goalRepository.create({
-        ...goal,
-        profileId: activeProfileId,
+      return di.usecases.createGoalUsecase.run({
+        goal: {
+          ...goal,
+          profileId: activeProfileId,
+        }
       });
     },
     onSuccess: () => {
