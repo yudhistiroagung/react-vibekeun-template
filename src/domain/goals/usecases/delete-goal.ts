@@ -13,7 +13,10 @@ type Output = void;
 export class DeleteGoalUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'DeleteGoalUsecase';
 
-  constructor(@inject(GoalRepository.TOKEN) private readonly goalRepository: GoalRepository) {}
+  constructor(
+    @inject(GoalRepository.TOKEN)
+    private readonly goalRepository: GoalRepository,
+  ) {}
 
   async run({ id }: Input): Promise<Output> {
     return this.goalRepository.delete(id);

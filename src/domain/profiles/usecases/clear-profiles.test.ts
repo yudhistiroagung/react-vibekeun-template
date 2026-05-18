@@ -1,11 +1,11 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import type { ProfileRepository } from '../profile-repository';
 import { ClearProfilesUsecase } from './clear-profiles';
-import { ProfileRepository } from '../profile-repository';
 
 describe('ClearProfilesUsecase', () => {
   it('should execute successfully', async () => {
-    const mockProfileRepository = {
-    } as unknown as import('vitest').Mocked<ProfileRepository>;
+    const mockProfileRepository =
+      {} as unknown as import('vitest').Mocked<ProfileRepository>;
 
     mockProfileRepository.clear = vi.fn().mockResolvedValue(undefined);
 

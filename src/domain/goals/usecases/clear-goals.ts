@@ -11,7 +11,10 @@ type Output = void;
 export class ClearGoalsUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'ClearGoalsUsecase';
 
-  constructor(@inject(GoalRepository.TOKEN) private readonly goalRepository: GoalRepository) {}
+  constructor(
+    @inject(GoalRepository.TOKEN)
+    private readonly goalRepository: GoalRepository,
+  ) {}
 
   async run(): Promise<Output> {
     return this.goalRepository.clear();

@@ -35,7 +35,7 @@ export class GoalRepositoryImpl implements GoalRepository {
   async update(id: number, goal: Partial<Goal>): Promise<Goal> {
     await this.local.updateGoal(id, goal);
     const updatedEntities = await this.local.getGoals();
-    const updatedEntity = updatedEntities.find(g => g.id === id);
+    const updatedEntity = updatedEntities.find((g) => g.id === id);
     if (!updatedEntity) throw new Error(`Goal ${id} not found after update`);
     return goalEntityToDomain(updatedEntity);
   }

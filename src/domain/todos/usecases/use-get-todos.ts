@@ -10,11 +10,14 @@ type Output = Todo[];
 
 @singleton()
 export class GetTodosUsecase implements BaseUsecase<Input, Output> {
-    static readonly TOKEN = 'GetTodosUsecase';
+  static readonly TOKEN = 'GetTodosUsecase';
 
-    constructor(@inject(TodoRepository.TOKEN) private readonly todoRepository: TodoRepository) { }
-    
-    async run(): Promise<Todo[]> {
-        return this.todoRepository.getTodos();
-    }
+  constructor(
+    @inject(TodoRepository.TOKEN)
+    private readonly todoRepository: TodoRepository,
+  ) {}
+
+  async run(): Promise<Todo[]> {
+    return this.todoRepository.getTodos();
+  }
 }

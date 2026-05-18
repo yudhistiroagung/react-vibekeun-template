@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ProfileLocalDatasource } from './profile-local-datasource';
 import type { ProfileEntity } from '../../models/profile-entity';
+import { ProfileLocalDatasource } from './profile-local-datasource';
 
 describe('ProfileLocalDatasource', () => {
   let mockTable: any;
@@ -32,7 +32,11 @@ describe('ProfileLocalDatasource', () => {
   });
 
   it('should get a profile by id', async () => {
-    const mockProfile: ProfileEntity = { id: 1, name: 'Profile 1', createdAt: 123 };
+    const mockProfile: ProfileEntity = {
+      id: 1,
+      name: 'Profile 1',
+      createdAt: 123,
+    };
     mockTable.get.mockResolvedValue(mockProfile);
 
     const result = await datasource.getProfile(1);

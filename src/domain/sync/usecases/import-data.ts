@@ -1,9 +1,8 @@
 import { inject, singleton } from 'tsyringe';
 
 import type { BaseUsecase } from '@/cores/usecases/base-usecase';
-
-import { ProfileRepository } from '@/domain/profiles/profile-repository';
 import { GoalRepository } from '@/domain/goals/goal-repository';
+import { ProfileRepository } from '@/domain/profiles/profile-repository';
 import { TaskRepository } from '@/domain/tasks/task-repository';
 
 type Input = {
@@ -16,9 +15,12 @@ export class ImportDataUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'ImportDataUsecase';
 
   constructor(
-    @inject(ProfileRepository.TOKEN) private readonly profileRepository: ProfileRepository,
-    @inject(GoalRepository.TOKEN) private readonly goalRepository: GoalRepository,
-    @inject(TaskRepository.TOKEN) private readonly taskRepository: TaskRepository
+    @inject(ProfileRepository.TOKEN)
+    private readonly profileRepository: ProfileRepository,
+    @inject(GoalRepository.TOKEN)
+    private readonly goalRepository: GoalRepository,
+    @inject(TaskRepository.TOKEN)
+    private readonly taskRepository: TaskRepository,
   ) {}
 
   async run({ file }: Input): Promise<Output> {

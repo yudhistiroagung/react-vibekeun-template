@@ -1,11 +1,11 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import type { TaskRepository } from '../task-repository';
 import { GetAllTasksUsecase } from './get-all-tasks';
-import { TaskRepository } from '../task-repository';
 
 describe('GetAllTasksUsecase', () => {
   it('should execute successfully', async () => {
-    const mockTaskRepository = {
-    } as unknown as import('vitest').Mocked<TaskRepository>;
+    const mockTaskRepository =
+      {} as unknown as import('vitest').Mocked<TaskRepository>;
 
     mockTaskRepository.getAll = vi.fn().mockResolvedValue('mock-result' as any);
 

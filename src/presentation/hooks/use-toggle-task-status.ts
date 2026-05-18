@@ -6,12 +6,23 @@ export const useToggleTaskStatus = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({ taskId, status, rating }: { taskId: number; status: Task['status']; rating?: number }) => {
+    mutationFn: async ({
+      taskId,
+      status,
+      rating,
+    }: {
+      taskId: number;
+      status: Task['status'];
+      rating?: number;
+    }) => {
       const taskUpdate: Partial<Task> = { status };
       if (rating !== undefined) {
         taskUpdate.rating = rating;
       }
-      return di.usecases.updateTaskUsecase.run({ id: taskId, task: taskUpdate });
+      return di.usecases.updateTaskUsecase.run({
+        id: taskId,
+        task: taskUpdate,
+      });
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tasks', 'today'] });

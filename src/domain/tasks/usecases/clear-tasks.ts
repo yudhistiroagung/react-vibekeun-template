@@ -11,7 +11,10 @@ type Output = void;
 export class ClearTasksUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'ClearTasksUsecase';
 
-  constructor(@inject(TaskRepository.TOKEN) private readonly taskRepository: TaskRepository) {}
+  constructor(
+    @inject(TaskRepository.TOKEN)
+    private readonly taskRepository: TaskRepository,
+  ) {}
 
   async run(): Promise<Output> {
     return this.taskRepository.clear();

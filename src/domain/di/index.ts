@@ -1,10 +1,33 @@
 import { container } from 'tsyringe';
-
-import { GetTodosUsecase } from '../todos/usecases/use-get-todos';
-import { GetAllTasksUsecase, GetTasksByProfileIdAndDateUsecase, CreateTaskUsecase, UpdateTaskUsecase, BulkAddTasksUsecase, ClearTasksUsecase } from '../tasks/usecases';
-import { GetAllProfilesUsecase, GetProfileByIdUsecase, CreateProfileUsecase, UpdateProfileUsecase, DeleteProfileUsecase, BulkAddProfilesUsecase, ClearProfilesUsecase } from '../profiles/usecases';
-import { GetAllGoalsUsecase, GetGoalsByProfileIdUsecase, CreateGoalUsecase, UpdateGoalUsecase, DeleteGoalUsecase, BulkAddGoalsUsecase, ClearGoalsUsecase } from '../goals/usecases';
+import {
+  BulkAddGoalsUsecase,
+  ClearGoalsUsecase,
+  CreateGoalUsecase,
+  DeleteGoalUsecase,
+  GetAllGoalsUsecase,
+  GetGoalsByProfileIdUsecase,
+  UpdateGoalUsecase,
+} from '../goals/usecases';
+import {
+  BulkAddProfilesUsecase,
+  ClearProfilesUsecase,
+  CreateProfileUsecase,
+  DeleteProfileUsecase,
+  GetAllProfilesUsecase,
+  GetProfileByIdUsecase,
+  UpdateProfileUsecase,
+} from '../profiles/usecases';
 import { ExportDataUsecase, ImportDataUsecase } from '../sync/usecases';
+import {
+  BulkAddTasksUsecase,
+  ClearTasksUsecase,
+  CreateTaskUsecase,
+  GetAllTasksUsecase,
+  GetDashboardStats,
+  GetTasksByProfileIdAndDateUsecase,
+  UpdateTaskUsecase,
+} from '../tasks/usecases';
+import { GetTodosUsecase } from '../todos/usecases/use-get-todos';
 
 export default {
   // Todos
@@ -12,7 +35,10 @@ export default {
 
   // Tasks
   getAllTasksUsecase: container.resolve(GetAllTasksUsecase),
-  getTasksByProfileIdAndDateUsecase: container.resolve(GetTasksByProfileIdAndDateUsecase),
+  getTasksByProfileIdAndDateUsecase: container.resolve(
+    GetTasksByProfileIdAndDateUsecase,
+  ),
+  getDashboardStatsUsecase: container.resolve(GetDashboardStats),
   createTaskUsecase: container.resolve(CreateTaskUsecase),
   updateTaskUsecase: container.resolve(UpdateTaskUsecase),
   bulkAddTasksUsecase: container.resolve(BulkAddTasksUsecase),

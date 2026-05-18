@@ -12,7 +12,10 @@ type Output = Profile[];
 export class GetAllProfilesUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'GetAllProfilesUsecase';
 
-  constructor(@inject(ProfileRepository.TOKEN) private readonly profileRepository: ProfileRepository) {}
+  constructor(
+    @inject(ProfileRepository.TOKEN)
+    private readonly profileRepository: ProfileRepository,
+  ) {}
 
   async run(): Promise<Output> {
     return this.profileRepository.getAll();

@@ -16,13 +16,15 @@ export const useCreateGoal = () => {
         goal: {
           ...goal,
           profileId: activeProfileId,
-        }
+        },
       });
     },
     onSuccess: () => {
       if (activeProfileId) {
         queryClient.invalidateQueries({ queryKey: ['goals', activeProfileId] });
-        queryClient.invalidateQueries({ queryKey: ['tasks', 'today', activeProfileId] });
+        queryClient.invalidateQueries({
+          queryKey: ['tasks', 'today', activeProfileId],
+        });
       }
     },
   });

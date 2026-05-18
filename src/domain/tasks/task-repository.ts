@@ -2,6 +2,7 @@ import type { Task } from './models/task';
 
 export interface TaskRepository {
   getAll(): Promise<Task[]>;
+  getByProfileId(profileId: number): Promise<Task[]>;
   getByProfileIdAndDate(profileId: number, date: string): Promise<Task[]>;
   create(task: Omit<Task, 'id' | 'createdAt'>): Promise<Task>;
   update(id: number, task: Partial<Task>): Promise<Task>;

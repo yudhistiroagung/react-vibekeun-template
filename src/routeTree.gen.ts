@@ -11,8 +11,8 @@
 import { Route as rootRouteImport } from './presentation/routes/__root'
 import { Route as IndexRouteImport } from './presentation/routes/index'
 import { Route as SettingsIndexRouteImport } from './presentation/routes/settings/index'
-import { Route as Menu1IndexRouteImport } from './presentation/routes/menu1/index'
 import { Route as GoalsIndexRouteImport } from './presentation/routes/goals/index'
+import { Route as DashboardIndexRouteImport } from './presentation/routes/dashboard/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -24,48 +24,48 @@ const SettingsIndexRoute = SettingsIndexRouteImport.update({
   path: '/settings/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Menu1IndexRoute = Menu1IndexRouteImport.update({
-  id: '/menu1/',
-  path: '/menu1/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const GoalsIndexRoute = GoalsIndexRouteImport.update({
   id: '/goals/',
   path: '/goals/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/dashboard/',
+  path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/goals/': typeof GoalsIndexRoute
-  '/menu1/': typeof Menu1IndexRoute
   '/settings/': typeof SettingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardIndexRoute
   '/goals': typeof GoalsIndexRoute
-  '/menu1': typeof Menu1IndexRoute
   '/settings': typeof SettingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/goals/': typeof GoalsIndexRoute
-  '/menu1/': typeof Menu1IndexRoute
   '/settings/': typeof SettingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/goals/' | '/menu1/' | '/settings/'
+  fullPaths: '/' | '/dashboard/' | '/goals/' | '/settings/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/goals' | '/menu1' | '/settings'
-  id: '__root__' | '/' | '/goals/' | '/menu1/' | '/settings/'
+  to: '/' | '/dashboard' | '/goals' | '/settings'
+  id: '__root__' | '/' | '/dashboard/' | '/goals/' | '/settings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
   GoalsIndexRoute: typeof GoalsIndexRoute
-  Menu1IndexRoute: typeof Menu1IndexRoute
   SettingsIndexRoute: typeof SettingsIndexRoute
 }
 
@@ -85,13 +85,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/menu1/': {
-      id: '/menu1/'
-      path: '/menu1'
-      fullPath: '/menu1/'
-      preLoaderRoute: typeof Menu1IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/goals/': {
       id: '/goals/'
       path: '/goals'
@@ -99,13 +92,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GoalsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
   GoalsIndexRoute: GoalsIndexRoute,
-  Menu1IndexRoute: Menu1IndexRoute,
   SettingsIndexRoute: SettingsIndexRoute,
 }
 export const routeTree = rootRouteImport

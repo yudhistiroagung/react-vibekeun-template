@@ -14,7 +14,10 @@ type Output = Task;
 export class CreateTaskUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'CreateTaskUsecase';
 
-  constructor(@inject(TaskRepository.TOKEN) private readonly taskRepository: TaskRepository) {}
+  constructor(
+    @inject(TaskRepository.TOKEN)
+    private readonly taskRepository: TaskRepository,
+  ) {}
 
   async run({ task }: Input): Promise<Output> {
     return this.taskRepository.create(task);

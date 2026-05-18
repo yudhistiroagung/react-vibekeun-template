@@ -11,7 +11,10 @@ type Output = void;
 export class ClearProfilesUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'ClearProfilesUsecase';
 
-  constructor(@inject(ProfileRepository.TOKEN) private readonly profileRepository: ProfileRepository) {}
+  constructor(
+    @inject(ProfileRepository.TOKEN)
+    private readonly profileRepository: ProfileRepository,
+  ) {}
 
   async run(): Promise<Output> {
     return this.profileRepository.clear();

@@ -3,5 +3,5 @@ import usecases from '@/domain/di';
 
 export default {
   repositories,
-  usecases
+  usecases,
 };

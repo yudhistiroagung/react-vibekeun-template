@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { TodoLocalDatasource } from './todo-local-datasource';
 import type { TodoEntity } from '../../models/todo-entity';
+import { TodoLocalDatasource } from './todo-local-datasource';
 
 describe('TodoLocalDatasource', () => {
   let mockTable: any;
@@ -16,7 +16,14 @@ describe('TodoLocalDatasource', () => {
 
   it('should get all todos', async () => {
     const mockTodos: TodoEntity[] = [
-      { id: '1', name: 'Todo 1', description: 'Desc', status: false, created_at: new Date(123), updated_at: new Date(123) },
+      {
+        id: '1',
+        name: 'Todo 1',
+        description: 'Desc',
+        status: false,
+        created_at: new Date(123),
+        updated_at: new Date(123),
+      },
     ];
     mockTable.toArray.mockResolvedValue(mockTodos);
 
@@ -28,7 +35,14 @@ describe('TodoLocalDatasource', () => {
 
   it('should set todos using bulkAdd', async () => {
     const mockTodos: TodoEntity[] = [
-      { id: '1', name: 'Todo 1', description: 'Desc', status: false, created_at: new Date(123), updated_at: new Date(123) },
+      {
+        id: '1',
+        name: 'Todo 1',
+        description: 'Desc',
+        status: false,
+        created_at: new Date(123),
+        updated_at: new Date(123),
+      },
     ];
     mockTable.bulkAdd.mockResolvedValue(undefined);
 

@@ -12,7 +12,10 @@ type Output = Task[];
 export class GetAllTasksUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'GetAllTasksUsecase';
 
-  constructor(@inject(TaskRepository.TOKEN) private readonly taskRepository: TaskRepository) {}
+  constructor(
+    @inject(TaskRepository.TOKEN)
+    private readonly taskRepository: TaskRepository,
+  ) {}
 
   async run(): Promise<Output> {
     return this.taskRepository.getAll();

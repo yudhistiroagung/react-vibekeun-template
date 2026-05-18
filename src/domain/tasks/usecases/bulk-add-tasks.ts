@@ -14,7 +14,10 @@ type Output = void;
 export class BulkAddTasksUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'BulkAddTasksUsecase';
 
-  constructor(@inject(TaskRepository.TOKEN) private readonly taskRepository: TaskRepository) {}
+  constructor(
+    @inject(TaskRepository.TOKEN)
+    private readonly taskRepository: TaskRepository,
+  ) {}
 
   async run({ tasks }: Input): Promise<Output> {
     return this.taskRepository.bulkAdd(tasks);

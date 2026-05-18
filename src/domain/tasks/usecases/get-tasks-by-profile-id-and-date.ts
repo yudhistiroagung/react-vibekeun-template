@@ -12,10 +12,15 @@ type Input = {
 type Output = Task[];
 
 @singleton()
-export class GetTasksByProfileIdAndDateUsecase implements BaseUsecase<Input, Output> {
+export class GetTasksByProfileIdAndDateUsecase
+  implements BaseUsecase<Input, Output>
+{
   static readonly TOKEN = 'GetTasksByProfileIdAndDateUsecase';
 
-  constructor(@inject(TaskRepository.TOKEN) private readonly taskRepository: TaskRepository) {}
+  constructor(
+    @inject(TaskRepository.TOKEN)
+    private readonly taskRepository: TaskRepository,
+  ) {}
 
   async run({ profileId, date }: Input): Promise<Output> {
     return this.taskRepository.getByProfileIdAndDate(profileId, date);

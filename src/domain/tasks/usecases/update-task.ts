@@ -15,7 +15,10 @@ type Output = Task;
 export class UpdateTaskUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'UpdateTaskUsecase';
 
-  constructor(@inject(TaskRepository.TOKEN) private readonly taskRepository: TaskRepository) {}
+  constructor(
+    @inject(TaskRepository.TOKEN)
+    private readonly taskRepository: TaskRepository,
+  ) {}
 
   async run({ id, task }: Input): Promise<Output> {
     return this.taskRepository.update(id, task);

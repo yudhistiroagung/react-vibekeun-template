@@ -14,7 +14,10 @@ type Output = void;
 export class BulkAddProfilesUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'BulkAddProfilesUsecase';
 
-  constructor(@inject(ProfileRepository.TOKEN) private readonly profileRepository: ProfileRepository) {}
+  constructor(
+    @inject(ProfileRepository.TOKEN)
+    private readonly profileRepository: ProfileRepository,
+  ) {}
 
   async run({ profiles }: Input): Promise<Output> {
     return this.profileRepository.bulkAdd(profiles);

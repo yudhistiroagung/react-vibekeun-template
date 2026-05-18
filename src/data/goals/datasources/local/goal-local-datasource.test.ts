@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { GoalLocalDatasource } from './goal-local-datasource';
 import type { GoalEntity } from '../../models/goal-entity';
+import { GoalLocalDatasource } from './goal-local-datasource';
 
 describe('GoalLocalDatasource', () => {
   let mockTable: any;
@@ -19,7 +19,14 @@ describe('GoalLocalDatasource', () => {
 
   it('should get all goals', async () => {
     const mockGoals: GoalEntity[] = [
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      {
+        id: 1,
+        title: 'Goal 1',
+        description: 'Desc',
+        frequency: 'daily',
+        profileId: 1,
+        createdAt: 123,
+      },
     ];
     mockTable.toArray.mockResolvedValue(mockGoals);
 
@@ -31,7 +38,14 @@ describe('GoalLocalDatasource', () => {
 
   it('should get goals by profile id', async () => {
     const mockGoals: GoalEntity[] = [
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      {
+        id: 1,
+        title: 'Goal 1',
+        description: 'Desc',
+        frequency: 'daily',
+        profileId: 1,
+        createdAt: 123,
+      },
     ];
     const mockEquals = vi.fn().mockReturnValue({
       toArray: vi.fn().mockResolvedValue(mockGoals),
@@ -48,7 +62,13 @@ describe('GoalLocalDatasource', () => {
   });
 
   it('should add a goal', async () => {
-    const mockGoal: GoalEntity = { title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 };
+    const mockGoal: GoalEntity = {
+      title: 'Goal 1',
+      description: 'Desc',
+      frequency: 'daily',
+      profileId: 1,
+      createdAt: 123,
+    };
     mockTable.add.mockResolvedValue(1);
 
     const result = await datasource.addGoal(mockGoal);
@@ -59,7 +79,14 @@ describe('GoalLocalDatasource', () => {
 
   it('should bulk add goals', async () => {
     const mockGoals: GoalEntity[] = [
-      { id: 1, title: 'Goal 1', description: 'Desc', frequency: 'daily', profileId: 1, createdAt: 123 },
+      {
+        id: 1,
+        title: 'Goal 1',
+        description: 'Desc',
+        frequency: 'daily',
+        profileId: 1,
+        createdAt: 123,
+      },
     ];
     mockTable.bulkAdd.mockResolvedValue(undefined);
 

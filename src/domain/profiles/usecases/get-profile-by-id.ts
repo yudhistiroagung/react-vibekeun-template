@@ -14,7 +14,10 @@ type Output = Profile | undefined;
 export class GetProfileByIdUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'GetProfileByIdUsecase';
 
-  constructor(@inject(ProfileRepository.TOKEN) private readonly profileRepository: ProfileRepository) {}
+  constructor(
+    @inject(ProfileRepository.TOKEN)
+    private readonly profileRepository: ProfileRepository,
+  ) {}
 
   async run({ id }: Input): Promise<Output> {
     return this.profileRepository.getById(id);

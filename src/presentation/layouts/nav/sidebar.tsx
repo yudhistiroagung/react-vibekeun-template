@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Home, Settings, Target, User } from 'lucide-react';
+import { BarChart2, Home, Settings, Target } from 'lucide-react';
 
 export function Sidebar() {
   return (
@@ -20,11 +20,11 @@ export function Sidebar() {
           Goals
         </Link>
         <Link
-          to="/menu1"
+          to="/dashboard"
           className="flex items-center gap-3 px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors [&.active]:bg-blue-50 [&.active]:text-blue-600 [&.active]:font-medium"
         >
-          <User size={20} />
-          Menu 1
+          <BarChart2 size={20} />
+          Dashboard
         </Link>
         <Link
           to="/settings"

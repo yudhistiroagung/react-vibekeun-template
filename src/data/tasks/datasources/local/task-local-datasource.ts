@@ -14,8 +14,19 @@ export class TaskLocalDatasource implements TaskDataSource {
     return this.tasks.toArray();
   }
 
-  async getTasksByProfileAndDate(profileId: number, date: string): Promise<TaskEntity[]> {
-    return this.tasks.where('profileId').equals(profileId).filter(t => t.date === date).toArray();
+  async getTasksByProfileId(profileId: number): Promise<TaskEntity[]> {
+    return this.tasks.where('profileId').equals(profileId).toArray();
+  }
+
+  async getTasksByProfileAndDate(
+    profileId: number,
+    date: string,
+  ): Promise<TaskEntity[]> {
+    return this.tasks
+      .where('profileId')
+      .equals(profileId)
+      .filter((t) => t.date === date)
+      .toArray();
   }
 
   async createTask(task: Omit<TaskEntity, 'id'>): Promise<TaskEntity> {

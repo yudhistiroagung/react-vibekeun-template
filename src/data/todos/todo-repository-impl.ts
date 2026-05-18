@@ -15,7 +15,7 @@ import type { TodoDto, TodoEntity } from './models';
 @singleton()
 export class TodoRepositoryImpl implements TodoRepository {
   static readonly TOKEN = TodoRepository.TOKEN;
-  
+
   constructor(
     @inject(TodoLocalDatasource.TOKEN)
     private local: TodoDataSource<TodoEntity>,

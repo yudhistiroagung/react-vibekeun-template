@@ -1,11 +1,16 @@
+import { CheckCircle2, Circle } from 'lucide-react';
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/presentation/components/ui/card';
-import { Slider } from '@/presentation/components/ui/slider';
 import { Badge } from '@/presentation/components/ui/badge';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/presentation/components/ui/card';
+import { Slider } from '@/presentation/components/ui/slider';
 import type { TaskWithGoal } from '@/presentation/hooks/use-get-today-tasks';
 import { useRateTask } from '@/presentation/hooks/use-rate-task';
 import { useToggleTaskStatus } from '@/presentation/hooks/use-toggle-task-status';
-import { CheckCircle2, Circle } from 'lucide-react';
 
 interface TaskCardProps {
   task: TaskWithGoal;
@@ -20,15 +25,15 @@ export function TaskCard({ task }: TaskCardProps) {
   const handleToggleComplete = () => {
     const newStatus = isCompleted ? 'pending' : 'completed';
     const newRating = rating || 3; // Default to 3 if no rating when completing
-    
+
     if (newStatus === 'completed') {
       setRating(newRating);
     }
-    
-    toggleStatus({ 
-      taskId: task.id, 
+
+    toggleStatus({
+      taskId: task.id,
       status: newStatus,
-      rating: newStatus === 'completed' ? newRating : undefined 
+      rating: newStatus === 'completed' ? newRating : undefined,
     });
   };
 
@@ -39,8 +44,10 @@ export function TaskCard({ task }: TaskCardProps) {
   };
 
   return (
-    <Card className={`transition-colors ${isCompleted ? 'bg-muted/50 border-primary/20' : ''}`}>
-      <CardHeader 
+    <Card
+      className={`transition-colors ${isCompleted ? 'bg-muted/50 border-primary/20' : ''}`}
+    >
+      <CardHeader
         className="flex flex-row items-center justify-between pb-2 space-y-0 cursor-pointer hover:bg-muted/30 transition-colors rounded-t-xl"
         onClick={handleToggleComplete}
       >
@@ -50,7 +57,9 @@ export function TaskCard({ task }: TaskCardProps) {
           ) : (
             <Circle className="h-5 w-5 text-muted-foreground" />
           )}
-          <CardTitle className="text-base font-medium">{task.goal.title}</CardTitle>
+          <CardTitle className="text-base font-medium">
+            {task.goal.title}
+          </CardTitle>
         </div>
         <Badge variant={isCompleted ? 'default' : 'secondary'}>
           {isCompleted ? `Rated: ${rating}/5` : 'Pending'}
@@ -58,9 +67,11 @@ export function TaskCard({ task }: TaskCardProps) {
       </CardHeader>
       <CardContent>
         {task.goal.description && (
-          <p className="text-sm text-muted-foreground mb-4">{task.goal.description}</p>
+          <p className="text-sm text-muted-foreground mb-4">
+            {task.goal.description}
+          </p>
         )}
-        
+
         <div className="space-y-3 mt-4">
           <div className="flex justify-between text-xs text-muted-foreground">
             <span>Poor (1)</span>

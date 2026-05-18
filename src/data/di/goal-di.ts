@@ -1,10 +1,9 @@
 import { container } from 'tsyringe';
 import { AppDatabase } from '@/cores/dexie/db-dexie';
-
+import { GoalRepository } from '@/domain/goals/goal-repository';
 import GoalLocalDb from '../goals/datasources/local/db';
 import { GoalLocalDatasource } from '../goals/datasources/local/goal-local-datasource';
 import { GoalRepositoryImpl } from '../goals/goal-repository-impl';
-import { GoalRepository } from '@/domain/goals/goal-repository';
 
 // Register Dexie table
 container.register(
@@ -16,4 +15,3 @@ container.register(GoalLocalDatasource.TOKEN, GoalLocalDatasource);
 
 // Register Repository
 container.register(GoalRepository.TOKEN, GoalRepositoryImpl);
-

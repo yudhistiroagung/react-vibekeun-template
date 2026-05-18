@@ -15,7 +15,10 @@ type Output = Profile;
 export class UpdateProfileUsecase implements BaseUsecase<Input, Output> {
   static readonly TOKEN = 'UpdateProfileUsecase';
 
-  constructor(@inject(ProfileRepository.TOKEN) private readonly profileRepository: ProfileRepository) {}
+  constructor(
+    @inject(ProfileRepository.TOKEN)
+    private readonly profileRepository: ProfileRepository,
+  ) {}
 
   async run({ id, profile }: Input): Promise<Output> {
     return this.profileRepository.update(id, profile);
