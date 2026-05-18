@@ -30,7 +30,7 @@ graph TD
 | task-006 | Data Export and Import Synchronization | sync | 2 | task-001 | S | ✅ done |
 | task-003 | Goal Template Management | goal-management | 3 | task-002 | M | ✅ done |
 | task-004 | Task Generation and Rating Execution | task-execution | 4 | task-003 | L | ✅ done |
-| task-005 | Dashboard Analytics | stats-dashboard | 5 | task-004 | M | 🔵 in_progress |
+| task-005 | Dashboard Analytics | stats-dashboard | 5 | task-004 | M | ✅ done |
 
 > **How to use:** Say "pick task-001" to start a task, or "mark task-001 as done"
 > once it passes review. The agent enforces dependency order and updates this table.
