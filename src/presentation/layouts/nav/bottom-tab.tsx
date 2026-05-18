@@ -1,37 +1,36 @@
 import { Link } from '@tanstack/react-router';
-import { BarChart2, Home, Settings, Target } from 'lucide-react';
 
 export function BottomTab() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 h-16 border-t bg-white flex items-center justify-around px-4 z-50">
+    <nav className="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface border-t border-primary dark:border-outline-variant h-16 flex justify-around items-stretch">
+      <Link
+        to="/dashboard"
+        className="flex flex-col items-center justify-center text-primary dark:text-on-surface p-2 h-full flex-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-none [&.active]:bg-primary [&.active]:text-on-primary dark:[&.active]:bg-on-surface dark:[&.active]:text-surface"
+      >
+        <span className="material-symbols-outlined">dashboard</span>
+        <span className="font-label-caps text-label-caps mt-1">Dashboard</span>
+      </Link>
       <Link
         to="/"
-        className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
+        className="flex flex-col items-center justify-center text-primary dark:text-on-surface p-2 h-full flex-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-none [&.active]:bg-primary [&.active]:text-on-primary dark:[&.active]:bg-on-surface dark:[&.active]:text-surface"
       >
-        <Home size={20} />
-        <span className="text-xs mt-1">Home</span>
+        <span className="material-symbols-outlined">check_box</span>
+        <span className="font-label-caps text-label-caps mt-1">Tasks</span>
       </Link>
       <Link
         to="/goals"
-        className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
+        className="flex flex-col items-center justify-center text-primary dark:text-on-surface p-2 h-full flex-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-none [&.active]:bg-primary [&.active]:text-on-primary dark:[&.active]:bg-on-surface dark:[&.active]:text-surface"
       >
-        <Target size={20} />
-        <span className="text-xs mt-1">Goals</span>
-      </Link>
-      <Link
-        to="/dashboard"
-        className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
-      >
-        <BarChart2 size={20} />
-        <span className="text-xs mt-1">Stats</span>
+        <span className="material-symbols-outlined">flag</span>
+        <span className="font-label-caps text-label-caps mt-1">Goals</span>
       </Link>
       <Link
         to="/settings"
-        className="flex flex-col items-center justify-center text-gray-500 [&.active]:text-blue-600 w-16"
+        className="flex flex-col items-center justify-center text-primary dark:text-on-surface p-2 h-full flex-1 hover:bg-surface-container-highest dark:hover:bg-surface-container-high transition-none [&.active]:bg-primary [&.active]:text-on-primary dark:[&.active]:bg-on-surface dark:[&.active]:text-surface"
       >
-        <Settings size={20} />
-        <span className="text-xs mt-1">Settings</span>
+        <span className="material-symbols-outlined">settings</span>
+        <span className="font-label-caps text-label-caps mt-1">Settings</span>
       </Link>
-    </div>
+    </nav>
   );
 }

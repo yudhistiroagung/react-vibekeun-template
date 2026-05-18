@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Avatar, AvatarFallback } from '@/presentation/components/ui/avatar';
+import { useState, useEffect } from 'react';
 import { Button } from '@/presentation/components/ui/button';
 import {
   Dialog,
@@ -64,27 +63,15 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 flex h-16 w-full items-center border-b bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      {/* Logo Area matches sidebar width */}
-      <div className="flex h-full w-[220px] items-center border-r px-6">
-        <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Vibekeun
-        </span>
-      </div>
-
-      {/* Right side actions */}
-      <div className="flex flex-1 items-center justify-end px-6">
+    <header className="fixed top-0 w-full z-50 bg-surface dark:bg-surface border-b border-primary dark:border-outline-variant flex items-center justify-between px-gutter h-16 max-w-full">
+      <div className="flex items-center gap-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-              <Avatar className="h-8 w-8">
-                <AvatarFallback className="bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100">
-                  {initials}
-                </AvatarFallback>
-              </Avatar>
-            </Button>
+            <button className="w-10 h-10 border-strict flex items-center justify-center font-bold text-primary dark:text-on-surface hover:bg-surface-container dark:hover:bg-surface-container-high transition-none">
+              {initials}
+            </button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56" align="end" forceMount>
+          <DropdownMenuContent className="w-56 rounded-none border-strict" align="start" forceMount>
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
                 <p className="text-sm font-medium leading-none">
@@ -92,28 +79,38 @@ export function Header() {
                 </p>
               </div>
             </DropdownMenuLabel>
-            <DropdownMenuSeparator />
+            <DropdownMenuSeparator className="bg-primary dark:bg-outline-variant" />
             {profiles.map((profile) => (
               <DropdownMenuItem
                 key={profile.id}
                 onClick={() => setProfileId(profile.id)}
-                className="cursor-pointer"
+                className="cursor-pointer rounded-none focus:bg-primary focus:text-on-primary"
               >
                 <span className="flex-1">{profile.name}</span>
                 {activeProfileId === profile.id && (
-                  <span className="text-xs text-zinc-500">Active</span>
+                  <span className="text-xs">Active</span>
                 )}
               </DropdownMenuItem>
             ))}
-            <DropdownMenuSeparator />
+            <DropdownMenuSeparator className="bg-primary dark:bg-outline-variant" />
             <DropdownMenuItem
               onClick={() => setIsAddProfileOpen(true)}
-              className="cursor-pointer"
+              className="cursor-pointer rounded-none focus:bg-primary focus:text-on-primary"
             >
               Add Profile...
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+
+        <h1 className="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">
+          LEDGER
+        </h1>
+      </div>
+
+      <div className="flex items-center justify-end">
+        <button className="flex items-center justify-center hover:bg-surface-container dark:hover:bg-surface-container-high transition-none p-2 border-l border-primary dark:border-outline-variant h-16 w-16">
+          <span className="material-symbols-outlined text-primary dark:text-on-surface">add</span>
+        </button>
       </div>
 
       <Dialog open={isAddProfileOpen} onOpenChange={handleOpenChange}>

@@ -4,9 +4,9 @@ import { Header } from '@/presentation/layouts/nav/header';
 
 export function MobileLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-gray-50 pb-16">
+    <div className="flex flex-col min-h-screen bg-background text-on-background pb-24">
       <Header />
-      <main className="flex-1 w-full max-w-full overflow-x-hidden p-4">
+      <main className="max-w-[1200px] w-full mx-auto pt-24 px-gutter flex-1">
         {children}
       </main>
       <BottomTab />

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5e5e5e",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "outline-variant": "#cfc4c5",
+                    "surface-container-highest": "#e2e2e2",
+                    "inverse-primary": "#c6c6c6",
+                    "surface-bright": "#f9f9f9",
+                    "on-surface": "#1a1c1c",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "secondary-container": "#e3e2e2",
+                    "background": "#f9f9f9",
+                    "inverse-surface": "#2f3131",
+                    "surface": "#f9f9f9",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "on-tertiary-container": "#838484",
+                    "on-surface-variant": "#4c4546",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "primary-container": "#1b1b1b",
+                    "secondary-fixed": "#e3e2e2",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "outline": "#7e7576",
+                    "on-secondary-container": "#646464",
+                    "primary": "#000000",
+                    "on-primary-fixed": "#1b1b1b",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#848484",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "primary-fixed": "#e2e2e2",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#e2e2e2",
+                    "tertiary": "#000000",
+                    "on-secondary-fixed-variant": "#464747",
+                    "tertiary-container": "#1a1c1c",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "surface-variant": "#e2e2e2",
+                    "surface-tint": "#5e5e5e",
+                    "surface-container-low": "#f3f3f4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1a1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "element-gap": "16px",
+                    "section-gap": "64px",
+                    "unit": "8px",
+                    "container-padding": "32px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "stats-mono": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "label-caps": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "stats-mono": ["18px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .border-inset { box-shadow: inset 0 0 0 1px #000000; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f9f9f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #000000; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-primary flex items-center justify-between px-gutter h-16 max-w-full">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 bg-primary text-on-primary flex items-center justify-center font-bold text-label-caps">JD</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">LEDGER</h1>
+</div>
+<button class="material-symbols-outlined text-primary hover:bg-surface-container transition-none p-2" data-icon="add">add</button>
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-gutter max-w-[1200px] mx-auto">
+<!-- Page Title -->
+<div class="mb-section-gap">
+<p class="font-label-caps text-label-caps text-secondary mb-2">SYSTEM CONFIGURATION</p>
+<h2 class="font-headline-xl text-headline-xl text-primary">Settings</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-element-gap items-start">
+<!-- Profiles Section -->
+<section class="md:col-span-7 space-y-gutter">
+<div class="border border-primary bg-surface-container-lowest p-6">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Profiles</h3>
+<p class="font-body-sm text-body-sm text-secondary mt-1">Manage active identity contexts.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-4 py-2 hover:ring-1 hover:ring-primary transition-none">
+                            CREATE NEW PROFILE
+                        </button>
+</div>
+<div class="space-y-0 border-t border-primary">
+<!-- Profile Item 1 -->
+<div class="flex items-center justify-between py-4 border-b border-outline-variant group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 border border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-primary">John Doe</p>
+<p class="font-body-sm text-body-sm text-secondary">Primary Auditor • Active</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="material-symbols-outlined p-2 hover:bg-surface-container text-primary" data-icon="edit">edit</button>
+<button class="material-symbols-outlined p-2 hover:bg-surface-container text-primary" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+<!-- Profile Item 2 -->
+<div class="flex items-center justify-between py-4 border-b border-outline-variant group opacity-60">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 border border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-outline" data-icon="work">work</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-primary">Corporate Ledger</p>
+<p class="font-body-sm text-body-sm text-secondary">ReadOnly • Last sync 2h ago</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="material-symbols-outlined p-2 hover:bg-surface-container text-primary" data-icon="swap_horiz">swap_horiz</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Theme Section -->
+<div class="border border-primary bg-surface-container-lowest p-6">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Interface</h3>
+<div class="flex items-center justify-between py-4 border-t border-primary">
+<div>
+<p class="font-headline-md text-headline-md text-primary">Monochrome Theme</p>
+<p class="font-body-sm text-body-sm text-secondary">Strict high-contrast visual mode.</p>
+</div>
+<div class="w-12 h-6 border border-primary relative cursor-pointer bg-primary">
+<div class="absolute right-1 top-1 w-4 h-4 bg-on-primary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between py-4 border-t border-outline-variant">
+<div>
+<p class="font-headline-md text-headline-md text-primary">Compact View</p>
+<p class="font-body-sm text-body-sm text-secondary">Reduce whitespace for higher density.</p>
+</div>
+<div class="w-12 h-6 border border-primary relative cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-primary"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Management Section -->
+<section class="md:col-span-5 space-y-gutter">
+<div class="border border-primary bg-primary text-on-primary p-6">
+<h3 class="font-headline-md text-headline-md mb-2">Data Integrity</h3>
+<p class="font-body-sm text-body-sm opacity-80 mb-8">All data is stored locally. Use these tools to migrate or backup your ledger.</p>
+<div class="grid grid-cols-1 gap-4">
+<button class="w-full bg-surface-container-lowest text-primary border border-primary py-4 px-6 flex items-center justify-between hover:bg-primary hover:text-on-primary transition-none group">
+<span class="font-headline-md text-headline-md uppercase tracking-widest">Export JSON</span>
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+<button class="w-full bg-surface-container-lowest text-primary border border-primary py-4 px-6 flex items-center justify-between hover:bg-primary hover:text-on-primary transition-none group">
+<span class="font-headline-md text-headline-md uppercase tracking-widest">Import JSON</span>
+<span class="material-symbols-outlined" data-icon="upload">upload</span>
+</button>
+</div>
+</div>
+<!-- System Stats -->
+<div class="border border-primary bg-surface-container-lowest p-6">
+<p class="font-label-caps text-label-caps text-secondary mb-4">SYSTEM STATUS</p>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm">Storage Used</span>
+<span class="font-stats-mono text-stats-mono font-bold">12.4 MB</span>
+</div>
+<div class="h-1 bg-surface-container w-full overflow-hidden">
+<div class="h-full bg-primary w-[15%]"></div>
+</div>
+<div class="flex justify-between items-center text-secondary">
+<span class="font-body-sm text-body-sm">Last Backup</span>
+<span class="font-stats-mono text-stats-mono">14 OCT 2023</span>
+</div>
+</div>
+</div>
+<div class="aspect-square border border-primary overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale brightness-90 group-hover:scale-105 transition-transform duration-700" data-alt="A high-contrast, minimalist architectural photography of a brutalist concrete structure with sharp shadows and stark highlights. The image is captured in a crisp black and white aesthetic, emphasizing the geometric precision and monumental scale of the building. The mood is silent, authoritative, and perfectly aligned with a professional digital ledger environment. The lighting is direct, creating deep black voids and brilliant white surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDktHyc7do2ViUwzI5bavpryAPXJLOyYROgdZgg5cMSr_wkVb7u3vF6yv6hxZIA6kqkmTxvEUJjKQS3aBCZB7w5un6greF7EfBAyoYv_UbTrF2UcQUXLzWHm-vy8tMoDRY0donCnYNF-8GdgSrQyc73pElpu1dIxzLsSLmLdWhQF5RmHj-D9Xf2CpZk7Apc2ncYtqZpMo-uc9DLwjbtYuLAf7Fk0W8qppYDeFq8X6__eI0B-6c8OeM05i9rYvfED7LLV5yrUpF0Cyg"/>
+<div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-primary/80 to-transparent">
+<p class="text-on-primary font-label-caps text-label-caps mb-1">ENCRYPTION ENGINE</p>
+<p class="text-on-primary font-headline-md text-headline-md">AES-256 Active</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-primary flex justify-around items-stretch h-16">
+<a class="flex flex-col items-center justify-center text-primary p-2 h-full hover:bg-surface-container-highest transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary p-2 h-full hover:bg-surface-container-highest transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="check_box">check_box</span>
+<span class="font-label-caps text-label-caps mt-1">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary p-2 h-full hover:bg-surface-container-highest transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="flag">flag</span>
+<span class="font-label-caps text-label-caps mt-1">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary p-2 h-full transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

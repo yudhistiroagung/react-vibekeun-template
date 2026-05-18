@@ -1,6 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Download, Upload } from 'lucide-react';
-import { Button } from '@/presentation/components/ui/button';
 import { useSettings } from './settings.hook';
 
 export const Route = createFileRoute('/settings/')({
@@ -18,57 +16,49 @@ function SettingsPage() {
   } = useSettings();
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="border-b pb-4">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-          Settings
-        </h1>
-        <p className="text-gray-500 mt-2">
-          Manage your data and application preferences.
-        </p>
-      </div>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-element-gap items-start w-full">
+        <section className="md:col-span-12 space-y-gutter w-full">
+          <div className="border-strict bg-primary text-on-primary p-container-padding">
+            <h3 className="font-headline-md text-headline-md mb-2">Data Integrity</h3>
+            <p className="font-body-sm text-body-sm opacity-80 mb-8">
+              All data is stored locally. Use these tools to migrate or backup your ledger. Importing data will overwrite your existing data.
+            </p>
 
-      <div className="grid gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-800 mb-4">
-            Data Synchronization
-          </h2>
-          <p className="text-sm text-gray-600 mb-6">
-            You can export your data (profiles, goals, and tasks) to a file to
-            keep a backup or sync it to another device. Importing data will
-            overwrite your existing data.
-          </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button
+                onClick={handleExport}
+                disabled={isExporting}
+                className="w-full bg-surface-container-lowest text-primary border-strict py-4 px-6 flex items-center justify-between hover:bg-primary hover:text-on-primary transition-none group disabled:opacity-50"
+              >
+                <span className="font-headline-md text-headline-md uppercase tracking-widest">
+                  {isExporting ? 'EXPORTING...' : 'EXPORT JSON'}
+                </span>
+                <span className="material-symbols-outlined">download</span>
+              </button>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              onClick={handleExport}
-              disabled={isExporting}
-              className="flex items-center gap-2"
-            >
-              <Download size={16} />
-              {isExporting ? 'Exporting...' : 'Export Data'}
-            </Button>
+              <button
+                onClick={handleImportClick}
+                disabled={isImporting}
+                className="w-full bg-surface-container-lowest text-primary border-strict py-4 px-6 flex items-center justify-between hover:bg-primary hover:text-on-primary transition-none group disabled:opacity-50"
+              >
+                <span className="font-headline-md text-headline-md uppercase tracking-widest">
+                  {isImporting ? 'IMPORTING...' : 'IMPORT JSON'}
+                </span>
+                <span className="material-symbols-outlined">upload</span>
+              </button>
 
-            <Button
-              variant="outline"
-              onClick={handleImportClick}
-              disabled={isImporting}
-              className="flex items-center gap-2"
-            >
-              <Upload size={16} />
-              {isImporting ? 'Importing...' : 'Import Data'}
-            </Button>
-
-            <input
-              type="file"
-              accept=".json"
-              className="hidden"
-              ref={fileInputRef}
-              onChange={handleFileChange}
-            />
+              <input
+                type="file"
+                accept=".json"
+                className="hidden"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+              />
+            </div>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }
