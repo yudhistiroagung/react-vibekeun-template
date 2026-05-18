@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1779088198304" clover="3.2.0">
+  <project timestamp="1779088198304" name="All files">
+    <metrics statements="211" coveredstatements="185" conditionals="39" coveredconditionals="26" methods="116" coveredmethods="104" elements="366" coveredelements="315" complexity="0" loc="211" ncloc="211" packages="28" files="46" classes="46"/>
+    <package name="data.goals">
+      <metrics statements="19" coveredstatements="13" conditionals="2" coveredconditionals="0" methods="9" coveredmethods="6"/>
+      <file name="goal-repository-impl.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/goals/goal-repository-impl.ts">
+        <metrics statements="19" coveredstatements="13" conditionals="2" coveredconditionals="0" methods="9" coveredmethods="6"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.goals.datasources.local">
+      <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="6"/>
+      <file name="goal-local-datasource.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/goals/datasources/local/goal-local-datasource.ts">
+        <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="6"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.goals.datasources.local.db">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/goals/datasources/local/db/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="data.goals.mapper">
+      <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="goal-mapper.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/goals/mapper/goal-mapper.ts">
+        <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.profiles">
+      <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
+      <file name="profile-repository-impl.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/profiles/profile-repository-impl.ts">
+        <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.profiles.datasources.local">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+      <file name="profile-local-datasource.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/profiles/datasources/local/profile-local-datasource.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.profiles.datasources.local.db">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/profiles/datasources/local/db/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="data.profiles.mapper">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="profile-mapper.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/profiles/mapper/profile-mapper.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.tasks">
+      <metrics statements="13" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4"/>
+      <file name="task-repository-impl.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/tasks/task-repository-impl.ts">
+        <metrics statements="13" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.tasks.datasources.local">
+      <metrics statements="12" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="4"/>
+      <file name="task-local-datasource.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/tasks/datasources/local/task-local-datasource.ts">
+        <metrics statements="12" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="4"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.tasks.datasources.local.db">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/tasks/datasources/local/db/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="data.tasks.mapper">
+      <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="task-mapper.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/tasks/mapper/task-mapper.ts">
+        <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.todos">
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="todo-repository-impl.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/todos/todo-repository-impl.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.todos.datasources.local">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="todo-local-datasource.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/todos/datasources/local/todo-local-datasource.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.todos.datasources.local.db">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/todos/datasources/local/db/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="data.todos.datasources.remote">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="todo-remote-datasource.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/todos/datasources/remote/todo-remote-datasource.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="data.todos.mapper">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="todo-mapper.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/data/todos/mapper/todo-mapper.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.goals">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="goal-repository.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/goals/goal-repository.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="13" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.goals.usecases">
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="14"/>
+      <file name="bulk-add-goals.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/goals/usecases/bulk-add-goals.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="clear-goals.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/goals/usecases/clear-goals.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+      <file name="create-goal.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/goals/usecases/create-goal.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="delete-goal.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/goals/usecases/delete-goal.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+      </file>
+      <file name="get-all-goals.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/goals/usecases/get-all-goals.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+      <file name="get-goals-by-profile-id.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/goals/usecases/get-goals-by-profile-id.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="update-goal.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/goals/usecases/update-goal.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.profiles">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="profile-repository.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/profiles/profile-repository.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="13" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.profiles.usecases">
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="14"/>
+      <file name="bulk-add-profiles.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/profiles/usecases/bulk-add-profiles.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="clear-profiles.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/profiles/usecases/clear-profiles.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+      <file name="create-profile.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/profiles/usecases/create-profile.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="delete-profile.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/profiles/usecases/delete-profile.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+      </file>
+      <file name="get-all-profiles.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/profiles/usecases/get-all-profiles.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+      <file name="get-profile-by-id.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/profiles/usecases/get-profile-by-id.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="update-profile.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/profiles/usecases/update-profile.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.sync.usecases">
+      <metrics statements="24" coveredstatements="21" conditionals="12" coveredconditionals="6" methods="4" coveredmethods="4"/>
+      <file name="export-data.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/sync/usecases/export-data.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+      </file>
+      <file name="import-data.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/sync/usecases/import-data.ts">
+        <metrics statements="15" coveredstatements="12" conditionals="12" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.tasks">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="task-repository.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/tasks/task-repository.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="12" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.tasks.usecases">
+      <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12"/>
+      <file name="bulk-add-tasks.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/tasks/usecases/bulk-add-tasks.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="clear-tasks.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/tasks/usecases/clear-tasks.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+      <file name="create-task.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/tasks/usecases/create-task.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="get-all-tasks.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/tasks/usecases/get-all-tasks.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+      <file name="get-tasks-by-profile-id-and-date.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/tasks/usecases/get-tasks-by-profile-id-and-date.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+      <file name="update-task.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/tasks/usecases/update-task.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.todos">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="todo-repository.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/todos/todo-repository.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.todos.usecases">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="use-get-todos.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/domain/todos/usecases/use-get-todos.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="presentation.components.button">
+      <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="button.tsx" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/presentation/components/button/button.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="54" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="presentation.utils">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="utils.ts" path="/Users/yudhistiroagung/Projects/vibekeun-template/react-vibekeun-template/src/presentation/utils/utils.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="3" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
