@@ -5,7 +5,7 @@ export const useRateTask = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({ taskId, rating, comments }: { taskId: number; rating: number; comments: string }) => {
+    mutationFn: async ({ taskId, rating, comments }: { taskId: number; rating: number; comments?: string }) => {
       return di.usecases.updateTaskUsecase.run({ id: taskId, task: { rating, comments, status: 'completed' } });
     },
     onSuccess: () => {

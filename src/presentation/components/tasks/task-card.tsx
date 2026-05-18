@@ -4,6 +4,7 @@ import { Slider } from '@/presentation/components/ui/slider';
 import { Badge } from '@/presentation/components/ui/badge';
 import type { TaskWithGoal } from '@/presentation/hooks/use-get-today-tasks';
 import { useRateTask } from '@/presentation/hooks/use-rate-task';
+import { useToggleTaskStatus } from '@/presentation/hooks/use-toggle-task-status';
 import { CheckCircle2, Circle } from 'lucide-react';
 
 interface TaskCardProps {
@@ -12,8 +13,24 @@ interface TaskCardProps {
 
 export function TaskCard({ task }: TaskCardProps) {
   const { mutate: rateTask } = useRateTask();
+  const { mutate: toggleStatus } = useToggleTaskStatus();
   const [rating, setRating] = useState<number>(task.rating || 0);
   const isCompleted = task.status === 'completed';
+
+  const handleToggleComplete = () => {
+    const newStatus = isCompleted ? 'pending' : 'completed';
+    const newRating = rating || 3; // Default to 3 if no rating when completing
+    
+    if (newStatus === 'completed') {
+      setRating(newRating);
+    }
+    
+    toggleStatus({ 
+      taskId: task.id, 
+      status: newStatus,
+      rating: newStatus === 'completed' ? newRating : undefined 
+    });
+  };
 
   const handleRatingChange = (value: number[]) => {
     const newRating = value[0];
@@ -23,7 +40,10 @@ export function TaskCard({ task }: TaskCardProps) {
 
   return (
     <Card className={`transition-colors ${isCompleted ? 'bg-muted/50 border-primary/20' : ''}`}>
-      <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+      <CardHeader 
+        className="flex flex-row items-center justify-between pb-2 space-y-0 cursor-pointer hover:bg-muted/30 transition-colors rounded-t-xl"
+        onClick={handleToggleComplete}
+      >
         <div className="flex items-center gap-2">
           {isCompleted ? (
             <CheckCircle2 className="h-5 w-5 text-primary" />

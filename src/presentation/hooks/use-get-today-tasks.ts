@@ -24,25 +24,25 @@ export const useGetTodayTasks = () => {
       let tasks = await getTasksUsecase.run({ profileId: activeProfileId, date: dateStr });
       const goals = await getGoalsUsecase.run({ profileId: activeProfileId });
 
-      // If no tasks exist for today, generate them based on goals
-      if (tasks.length === 0) {
-        const newTasks = [];
-        for (const goal of goals) {
-          // Simplification for MVP: generating for Daily and One-time
-          if (goal.frequency === 'Daily' || goal.frequency === 'One-time') {
-            const task = await createTaskUsecase.run({
-              task: {
-                profileId: activeProfileId,
-                goalId: goal.id,
-                date: dateStr,
-                status: 'pending',
-              }
-            });
-            newTasks.push(task);
-          }
-        }
+      const newTasks = [];
+      for (const goal of goals) {
+        const existingTask = tasks.find(t => t.goalId === goal.id);
         
-        tasks = newTasks;
+        if (!existingTask && (goal.frequency === 'Daily' || goal.frequency === 'One-time')) {
+          const task = await createTaskUsecase.run({
+            task: {
+              profileId: activeProfileId,
+              goalId: goal.id,
+              date: dateStr,
+              status: 'pending',
+            }
+          });
+          newTasks.push(task);
+        }
+      }
+      
+      if (newTasks.length > 0) {
+        tasks = [...tasks, ...newTasks];
       }
 
       // Map tasks to their goals
